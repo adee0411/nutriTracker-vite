@@ -20,13 +20,13 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Sidebar = () => {
   return (
-    <Grid md={2} sm={4} xs={12} height={"100vh"} overflow={"hidden"}>
+    <Grid lg={2} md={2} xs={2} height={"100vh"} overflow={"hidden"}>
       <Sheet
         sx={{
           width: "100%",
           height: "100%",
           background: "transparent",
-          borderRight: "none",
+          borderRight: "1px solid var(--joy-palette-neutral-200)",
         }}
       >
         <header style={{ height: "100px" }}>
@@ -57,7 +57,7 @@ const Sidebar = () => {
           </Box>
         </header>
 
-        <Box pt={10}>
+        <Box pt={10} height={"100%"}>
           <Typography
             color="neutral"
             pl={"32px"}
@@ -74,14 +74,21 @@ const Sidebar = () => {
                 borderBottom: "none",
               }}
             >
-              <ListItemButton sx={{ gap: 2, padding: 2, borderRadius: "sm" }}>
+              <ListItemButton
+                sx={{
+                  gap: 2,
+                  padding: 2,
+                  borderRadius: "sm",
+                  fontWeight: "bold",
+                }}
+              >
                 <img
                   src={DashboardIcon}
                   alt="dashboard-menu-icon"
                   width={24}
                   height={24}
                 />
-                <Typography level="body-md">Dashboard</Typography>
+                <Typography level="body-md">Overview</Typography>
                 <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
               </ListItemButton>
             </ListItem>
