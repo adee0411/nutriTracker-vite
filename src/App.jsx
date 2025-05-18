@@ -9,15 +9,41 @@ const theme = extendTheme({
   },
 });
 
+import ProtectedRoute from "./routes/ProtectedRoute";
 import Home from "./routes/Home/Home";
+import DashboardLayout from "./routes/Dashboard/DashboardLayout";
+import DashboardIndex from "./routes/Dashboard/DashboardIndex";
+import AuthProvider from "../backend/authentication/AuthProvider";
 
-const router = createBrowserRouter([{ path: "/", element: <Home /> }]);
+const router = createBrowserRouter([
+  {
+    Component: Home,
+    index: true,
+  },
+  {
+    Component: ProtectedRoute,
+    path: "/dashboard",
+    children: [
+      {
+        Component: DashboardLayout,
+        children: [
+          {
+            Component: DashboardIndex,
+            index: true,
+          },
+        ],
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <CssVarsProvider theme={theme}>
-      <RouterProvider router={router}></RouterProvider>
-    </CssVarsProvider>
+    <AuthProvider>
+      <CssVarsProvider theme={theme}>
+        <RouterProvider router={router}></RouterProvider>
+      </CssVarsProvider>
+    </AuthProvider>
   );
 }
 

@@ -1,10 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link, Stack, Typography, Button, Sheet } from "@mui/joy";
 import Logo from "../../assets/icons/logo_200px_primary.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../../backend/authentication/authContext";
 
 const Header = () => {
   const [isHeaderSolid, setIsHeaderSolid] = useState(false);
+
+  // Auth context
+  const authContext = useContext(AuthContext);
+  const { isLoading, loginUser, isLoggedIn } = authContext;
+
+  const navigate = useNavigate();
+
+  const handleLoginUser = (e) => {
+    e.preventDefault();
+    loginUser("adee0411@gmail.com", "000000").then((response) => {
+      if (response) {
+        console.log(isLoggedIn);
+        navigate("/dashboard");
+      } else {
+        console.log("Login failed");
+      }
+    });
+  };
+
   const handleScroll = () => {
     const headerHeight = document.querySelector("header").offsetHeight;
     if (window.scrollY > headerHeight) {
@@ -102,6 +124,8 @@ const Header = () => {
               color="primary"
               variant="outlined"
               sx={{ fontSize: "1rem" }}
+              onClick={handleLoginUser}
+              loading={isLoading}
             >
               Log In
             </Button>

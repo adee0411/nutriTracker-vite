@@ -35,16 +35,20 @@ const Hero = () => {
             are and let it be your personal assistant
           </Typography>
           <Stack direction="row" spacing={2} marginTop={3}>
-            <Button to="/signup" variant="outlined" color="primary" size="lg">
+            <Button variant="outlined" color="primary" size="lg">
               More info
             </Button>
-            <Button to="/signup" variant="solid" color="primary" size="lg">
+            <Button variant="solid" color="primary" size="lg">
               Sign Up
             </Button>
           </Stack>
           <Stack direction="row" spacing={2} marginTop={5} flexWrap="nowrap">
             {TESTIMONIALS.map((testimonial, index) => (
-              <TestimonialCard testimonial={testimonial} index={index} />
+              <TestimonialCard
+                testimonial={testimonial}
+                index={index}
+                key={index}
+              />
             ))}
           </Stack>
           <Stack direction="row" spacing={2} marginTop={3}>
@@ -58,6 +62,9 @@ const Hero = () => {
               }}
               size="lg"
               startDecorator={<FaApple />}
+              flex={1}
+              textAlign={"center"}
+              display="inline-block"
             >
               Download on the App Store
             </Link>
@@ -71,6 +78,9 @@ const Hero = () => {
               }}
               size="lg"
               startDecorator={<FaGooglePlay />}
+              textAlign={"center"}
+              display="inline-block"
+              flex={1}
             >
               Download on Google Play
             </Link>

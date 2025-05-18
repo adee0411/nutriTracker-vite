@@ -61,7 +61,7 @@ const Features = () => {
             margin="0 auto"
           >
             {FEATURES.map((feature, idx) => (
-              <Grid item xs={2} sm={1} md={1} key={idx}>
+              <Grid xs={2} sm={1} md={1} key={idx}>
                 <Card
                   key={idx}
                   variant="plain"
