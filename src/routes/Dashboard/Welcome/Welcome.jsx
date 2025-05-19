@@ -72,7 +72,7 @@ const Welcome = () => {
           justifyContent: "space-between",
           alignItems: "center",
           margin: "0 auto",
-          p: 10,
+          p: 2,
         }}
       >
         <FeatureLayout currentFeature={currentFeature} features={FEATURES} />

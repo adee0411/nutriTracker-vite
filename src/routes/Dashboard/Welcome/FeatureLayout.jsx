@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Typography } from "@mui/joy";
+import { Box, Typography, Stack } from "@mui/joy";
+
+import "./FeatureLayout.css";
 
 const FeatureLayout = ({ currentFeature, features }) => {
   return (
@@ -19,11 +21,27 @@ const FeatureLayout = ({ currentFeature, features }) => {
         {features[currentFeature].description}
       </Typography>
 
-      <img
-        src={features[currentFeature].image}
-        alt="illustration"
-        style={{ width: "50%", height: "auto" }}
-      />
+      <div style={{ height: "100%" }}>
+        <img
+          src={features[currentFeature].image}
+          alt="illustration"
+          style={{ width: "300px", height: "auto" }}
+        />
+      </div>
+
+      <Stack direction="row" gap={1}>
+        {Array(features.length)
+          .fill(undefined)
+          .map((el, i) => {
+            return (
+              <div
+                className={`indicator ${
+                  currentFeature === i ? "indicator--active" : ""
+                }`}
+              ></div>
+            );
+          })}
+      </Stack>
     </Box>
   );
 };
