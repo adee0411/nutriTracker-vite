@@ -51,7 +51,7 @@ const DashboardLayout = () => {
           >
             <Dropdown>
               <MenuButton variant="plain" color="neutral">
-                My Achievements: 5 <RiArrowDropDownFill fontSize={32} />
+                Eredményeim: 5 <RiArrowDropDownFill fontSize={32} />
               </MenuButton>
               <Menu
                 sx={{

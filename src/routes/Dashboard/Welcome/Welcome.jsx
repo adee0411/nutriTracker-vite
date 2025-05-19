@@ -12,35 +12,43 @@ import EditImage from "../../../assets/images/Setup-rafiki.svg";
 
 const FEATURES = [
   {
-    title: "Log meals and track nutritions",
+    title: "Köszöntünk a Nutritracker alkalmazásban!",
     description:
-      "Search for ingredients you take in and log them in your meals - so you can track your macros and adjust them to your goals.",
+      "Örülünk, hogy csatlakoztál! Az egészségesebb táplálkozás útja itt kezdődik. Kövesd az étkezéseidet, állíts be célokat, és szerezz hasznos visszajelzéseket, hogy egyre egészségesebb életet élhess — falatonként. Vágjunk bele! 💪",
+    image: ImageMan,
+  },
+  {
+    title: "Ételek, alapanyagok naplózása",
+    description:
+      "Keress rá a nap során elfogyasztott ételeidre és alapanyagaidra egy folyamatosan bővülő adatbázisban, naplózd őket és kövesd a napi tápanyag-beviteledet!",
     image: LogImage,
   },
   {
-    title: "Add custom ingredients or meals",
+    title: "Saját alapanyagok, kedvencek",
     description:
-      "If you can't find the ingredient you're looking for, don't worry! You can create custom ingredients and meals. ",
+      "Ha nem találod a keresett alapanyagot, adj hozzá sajátokat! Mentsd el kedvenceidet, hogy gyorsan naplózni tudd őket!",
     image: EditImage,
   },
   {
-    title: "Set diet goals and track your progress",
+    title: "Határozz meg célokat, érj el eredményeket",
     description:
-      "If you have plans to change your look, set your diet goals and achieve them together! You can track your progress, get useful hints and feedbacks.",
+      "Ha konkrét céljaid vannak, kezdj el egy diétás periódust és kövesd a fejlődésed!",
+    image: TrackImage,
+  },
+  {
+    title: "Személyre szabott tippek, érdekességek",
+    description:
+      "Segítünk a céljaid elérésében személyre szabott tippekkel, ötletekkel és naponta kaphatsz tanulmányokkal alátámasztott érdekességeket.",
     image: TrackImage,
   },
 ];
 
-const Welcome = ({ gender }) => {
+const Welcome = () => {
   const [currentFeature, setCurrentFeature] = useState(0);
-  const [renderFeatures, setRenderFeatures] = useState(false);
 
   const handleNextFeature = () => {
+    if (currentFeature === FEATURES.length - 1) return;
     setCurrentFeature(currentFeature + 1);
-  };
-
-  const handleRenderFeatures = () => {
-    setRenderFeatures(true);
   };
 
   return (
@@ -57,77 +65,34 @@ const Welcome = ({ gender }) => {
       <Box
         sx={{
           height: "100%",
+          width: "80%",
+          maxWidth: "800px",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
           margin: "0 auto",
-          gap: 6,
+          p: 10,
         }}
       >
-        {renderFeatures ? (
-          <FeatureLayout currentFeature={currentFeature} features={FEATURES} />
-        ) : (
-          <>
-            <Box sx={{ width: "40%", textAlign: "center" }}>
-              <Typography
-                level="title-lg"
-                fontSize={30}
-                fontWeight={200}
-                mb={2}
-              >
-                Hi <Typography fontWeight={400}>Adam</Typography>, Welcome to{" "}
-                <Typography color="primary" fontWeight={400}>
-                  NutriTracker
-                </Typography>
-                !
-              </Typography>
-              <Typography fontSize={20} fontWeight={200} mt={2}>
-                We’re excited to have you on board! Your journey to better
-                nutrition starts here. Track your meals, set goals, and gain
-                insights to fuel a healthier lifestyle — one bite at a time.
-                Let’s get started! 💪
-              </Typography>
-            </Box>
+        <FeatureLayout currentFeature={currentFeature} features={FEATURES} />
 
-            <img
-              src={gender === "femmale" ? ImageWoman : ImageMan}
-              alt="illustration"
-              style={{ width: "20%", height: "auto", marginTop: "20px" }}
-            />
-          </>
-        )}
         <Stack direction="row" gap={10} width="100%" justifyContent="center">
           <Button variant="outlined" fullWidth sx={{ maxWidth: 250 }}>
-            Let's get started now
+            Elkezdem
           </Button>
-          {!renderFeatures ? (
+
+          {currentFeature !== FEATURES.length - 1 ? (
             <Button
+              variant="solid"
               fullWidth
               sx={{ maxWidth: 250 }}
-              onClick={handleRenderFeatures}
+              onClick={handleNextFeature}
             >
-              Explore features
+              {currentFeature === 0 ? "Felfedezés" : "Következő"}
             </Button>
           ) : (
             ""
-          )}
-          {renderFeatures && currentFeature !== FEATURES.length - 1 ? (
-            <Button
-              fullWidth
-              sx={{ maxWidth: 250 }}
-              onClick={handleNextFeature}
-            >
-              Next
-            </Button>
-          ) : (
-            <Button
-              fullWidth
-              sx={{ maxWidth: 250 }}
-              onClick={handleNextFeature}
-            >
-              Got it!
-            </Button>
           )}
         </Stack>
       </Box>

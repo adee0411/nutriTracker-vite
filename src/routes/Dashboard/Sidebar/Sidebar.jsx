@@ -65,7 +65,7 @@ const Sidebar = () => {
             pb={"16px"}
             fontWeight="md"
           >
-            MENU
+            MENÜ
           </Typography>
           <List sx={{ padding: 2 }}>
             <ListItem
@@ -88,7 +88,7 @@ const Sidebar = () => {
                   width={24}
                   height={24}
                 />
-                <Typography level="body-md">Overview</Typography>
+                <Typography level="body-md">Áttekintés</Typography>
                 <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
               </ListItemButton>
             </ListItem>
@@ -105,7 +105,7 @@ const Sidebar = () => {
                   width={24}
                   height={24}
                 />
-                <Typography level="body-md">Recipes</Typography>
+                <Typography level="body-md">Receptek</Typography>
                 <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
               </ListItemButton>
             </ListItem>
@@ -122,7 +122,7 @@ const Sidebar = () => {
                   width={24}
                   height={24}
                 />
-                <Typography level="body-md">Achievements</Typography>
+                <Typography level="body-md">Eredmények</Typography>
                 <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
               </ListItemButton>
             </ListItem>
@@ -139,7 +139,7 @@ const Sidebar = () => {
                   width={24}
                   height={24}
                 />
-                <Typography level="body-md">Diet history</Typography>
+                <Typography level="body-md">Diéta történet</Typography>
                 <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
               </ListItemButton>
             </ListItem>
