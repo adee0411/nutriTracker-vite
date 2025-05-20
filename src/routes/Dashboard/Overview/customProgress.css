@@ -1,0 +1,17 @@
+.progress-track {
+  width: 14px;
+  height: 100%;
+  background-color: #cccccc5f;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 4px 0;
+}
+
+.progress-fill {
+  width: 8px;
+  height: var(--fillValue);
+  background-color: var(--joy-palette-primary-500, #0b6bcb);
+  border-radius: 1rem;
+}

@@ -35,6 +35,7 @@ const FeatureLayout = ({ currentFeature, features }) => {
           .map((el, i) => {
             return (
               <div
+                key={i}
                 className={`indicator ${
                   currentFeature === i ? "indicator--active" : ""
                 }`}
