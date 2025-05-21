@@ -1,5 +1,6 @@
 import React from "react";
 import "./customProgress.css";
+import { Tooltip } from "@mui/joy";
 
 const CustomProgress = ({ data }) => {
   // Prevent fill value to overflow
@@ -11,12 +12,14 @@ const CustomProgress = ({ data }) => {
     correctedData = 0;
   }
   return (
-    <div
-      className="progress-track"
-      style={{ "--fillValue": `${correctedData}%` }}
-    >
-      <div className="progress-fill"></div>
-    </div>
+    <Tooltip title={`${data} kcal`}>
+      <div
+        className="progress-track"
+        style={{ "--fillValue": `${correctedData}%` }}
+      >
+        <div className="progress-fill"></div>
+      </div>
+    </Tooltip>
   );
 };
 

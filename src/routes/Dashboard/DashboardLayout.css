@@ -1,0 +1,14 @@
+.dashboard-grid {
+  --header-hight: 60px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+main {
+  grid-area: main;
+}

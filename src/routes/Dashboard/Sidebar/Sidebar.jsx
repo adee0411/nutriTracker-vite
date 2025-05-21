@@ -9,6 +9,9 @@ import {
   ListItemButton,
   ListItemDecorator,
 } from "@mui/joy";
+
+import "./Sidebar.css";
+
 import Logo from "../../../assets/icons/logo_200px_primary.svg";
 import DashboardIcon from "../../../assets/icons/dashboard_128.png";
 import RecipeIcon from "../../../assets/icons/recipe_128.png";
@@ -20,23 +23,15 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Sidebar = () => {
   return (
-    <Grid lg={2} md={2} xs={2} height={"100vh"} overflow={"hidden"}>
-      <Sheet
-        sx={{
-          width: "100%",
-          height: "100%",
-          background: "transparent",
-          borderRight: "1px solid var(--joy-palette-neutral-200)",
-        }}
-      >
-        <header style={{ height: "100px" }}>
+    <nav id="dashboard-nav">
+      <Sheet color="primary" variant="plain" sx={{ height: "100%" }}>
+        <header>
           <Box
             display={"flex"}
             flexDirection="column"
             justifyContent={"center"}
             alignItems="center"
             padding={2}
-            height={"100%"}
             borderBottom={"none"}
           >
             <img
@@ -46,12 +41,7 @@ const Sidebar = () => {
               height={"auto"}
               style={{ aspectRatio: 1 }}
             />
-            <Typography
-              level="title-md"
-              color="primary"
-              fontWeight="bold"
-              fontSize={24}
-            >
+            <Typography level="h1" color="primary" fontSize={20}>
               NutriTracker
             </Typography>
           </Box>
@@ -146,7 +136,7 @@ const Sidebar = () => {
           </List>
         </Box>
       </Sheet>
-    </Grid>
+    </nav>
   );
 };
 

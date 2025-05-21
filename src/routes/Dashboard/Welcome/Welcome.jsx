@@ -60,6 +60,7 @@ const Welcome = () => {
         justifyContent: "center",
         alignItems: "center",
         margin: "0 auto",
+        p: 10,
       }}
     >
       <Box

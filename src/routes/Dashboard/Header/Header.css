@@ -1,0 +1,9 @@
+.dashboard-header {
+  grid-area: header;
+  height: var(--header-hight);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  border-bottom: 1px solid var(--joy-palette-neutral-300, #cdd7e1);
+}

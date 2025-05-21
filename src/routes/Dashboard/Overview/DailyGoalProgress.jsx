@@ -39,17 +39,13 @@ const DailyGoalProgress = ({ current, goal, size, type }) => {
           <div style={{ width: `${ProgressSizes[size].fontSize * 2}px` }}>
             <img src={BurnIcon} alt="burn-icon" width="100%" />
           </div>
-          {size === "sm" ? (
-            ""
-          ) : (
-            <Typography
-              color="neutral"
-              variant="plain"
-              fontSize={ProgressSizes[size].fontSize}
-            >
-              {ratioInPercentage}%
-            </Typography>
-          )}
+          <Typography
+            color="neutral"
+            variant="plain"
+            fontSize={ProgressSizes[size].fontSize}
+          >
+            {ratioInPercentage}%
+          </Typography>
         </CircularProgress>
       ) : (
         <LinearProgress

@@ -22,19 +22,25 @@ const Overview = () => {
         gridTemplateColumns: "1fr 300px",
         width: "100%",
         height: "100%",
-        gap: 2,
+        gap: 4,
       }}
     >
       <Box>
         <Typography level="h2" color="neutral" fontSize={20} mb={2}>
-          Áttekintés
+          Áttekintés (05. 20.)
         </Typography>
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(3, 1fr)",
             width: "100%",
+            height: "250px",
             gap: 2,
+            background: "pink",
+            "& > *": {
+              height: "inherit",
+              overflow: "hidden",
+            },
           }}
         >
           <Card
@@ -43,12 +49,13 @@ const Overview = () => {
               flex: 1,
               p: 2,
             }}
-            variant="plain"
+            color="primary"
+            variant="soft"
           >
             <Typography level="title-sm" color="neutral">
               Napi tápanyag-bevitel
             </Typography>
-            <CalorieGoalDetails current={2000} goal={3000} />
+            <CalorieGoalDetails current={4000} goal={3000} />
           </Card>{" "}
           <Card
             sx={{
@@ -59,10 +66,32 @@ const Overview = () => {
             variant="plain"
           >
             <Typography level="title-sm" color="neutral">
-              Elmúlt 7 napi kalória
+              Elmúlt 7 nap
             </Typography>
             <PrevCalories calData={TEST_CAL_DATA} />
           </Card>{" "}
+          <Card
+            sx={{
+              boxShadow: "md",
+              flex: 1,
+              p: 2,
+            }}
+            variant="plain"
+          >
+            <Typography level="title-sm" color="neutral">
+              Valami csuszpajsz
+            </Typography>
+          </Card>{" "}
+        </Box>
+        <Box height="calc(100% - 250px)">
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "2fr 1fr",
+              width: "100%",
+              gap: 4,
+            }}
+          ></Box>
         </Box>
       </Box>
 
