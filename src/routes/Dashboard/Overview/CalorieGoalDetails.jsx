@@ -13,7 +13,7 @@ const CalorieGoalDetails = ({ current, goal }) => {
   return (
     <>
       <Stack direction="row" gap={2}>
-        <Stack alignItems="center" gap={1} flex={1}>
+        <Stack alignItems="center" justifyContent="center" gap={1} flex={1}>
           <Stack direction="column" alignItems="center" gap="2px">
             <img src={FoodIcon} alt="food" width={24} height={24} />
             <Typography level="title-sm" fontWeight={400}>
@@ -32,7 +32,13 @@ const CalorieGoalDetails = ({ current, goal }) => {
             type="circular"
           />
         </Stack>
-        <Stack direction="column" alignItems="center" gap="2px" flex={1}>
+        <Stack
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          gap="2px"
+          flex={1}
+        >
           <img src={TargetIcon} alt="food" width={24} height={24} />
           <Typography level="title-sm" fontWeight={400}>
             Cél

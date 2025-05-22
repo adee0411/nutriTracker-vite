@@ -3,6 +3,7 @@ import CalorieGoalDetails from "./CalorieGoalDetails";
 import Calendar from "./Calendar/Calendar";
 
 import PrevCalories from "./PrevCalories";
+import MealDetails from "./LoggedFoods/MealDetails";
 
 const TEST_CAL_DATA = [
   { date: "05.20.", value: 1890 },
@@ -41,6 +42,7 @@ const Overview = () => {
               height: "inherit",
               overflow: "hidden",
             },
+            mb: 2,
           }}
         >
           <Card
@@ -76,22 +78,24 @@ const Overview = () => {
               flex: 1,
               p: 2,
             }}
-            variant="plain"
+            variant="solid"
+            color="primary"
+            invertedColors
           >
             <Typography level="title-sm" color="neutral">
               Valami csuszpajsz
             </Typography>
           </Card>{" "}
         </Box>
-        <Box height="calc(100% - 250px)">
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "2fr 1fr",
-              width: "100%",
-              gap: 4,
-            }}
-          ></Box>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 2,
+          }}
+        >
+          {/** FOOD LOGGING AND FOOD SEARCH */}
+          <MealDetails />
         </Box>
       </Box>
 

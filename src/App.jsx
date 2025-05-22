@@ -1,19 +1,20 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { CssVarsProvider } from "@mui/joy/styles";
-import { extendTheme } from "@mui/joy/styles";
+import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 
-const theme = extendTheme({
-  typography: {
-    fontFamily: "Poppins, sans-serif",
-  },
-});
+import store from "../src/state/store";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Home from "./routes/Home/Home";
 import DashboardLayout from "./routes/Dashboard/DashboardLayout";
 import DashboardIndex from "./routes/Dashboard/DashboardIndex";
 import AuthProvider from "../backend/authentication/AuthProvider";
+import { Provider } from "react-redux";
+
+const theme = extendTheme({
+  cssVarPrefix: "mode-toggle",
+  colorSchemeSelector: ".demo_mode-toggle-%s",
+});
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,9 @@ function App() {
   return (
     <AuthProvider>
       <CssVarsProvider theme={theme}>
-        <RouterProvider router={router}></RouterProvider>
+        <Provider store={store}>
+          <RouterProvider router={router}></RouterProvider>
+        </Provider>
       </CssVarsProvider>
     </AuthProvider>
   );
