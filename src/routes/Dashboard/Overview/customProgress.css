@@ -7,11 +7,17 @@
   justify-content: center;
   align-items: flex-end;
   padding: 4px 0;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.progress-track:hover {
+  opacity: 1;
 }
 
 .progress-fill {
   width: 8px;
   height: var(--fillValue);
-  background-color: var(--joy-palette-primary-500, #0b6bcb);
+  background-color: var(--fillColor);
   border-radius: 1rem;
 }

@@ -5,13 +5,13 @@ import Calendar from "./Calendar/Calendar";
 import PrevCalories from "./PrevCalories";
 
 const TEST_CAL_DATA = [
-  { date: "05.20.", value: 98 },
-  { date: "05.21.", value: 77 },
-  { date: "05.22.", value: 110 },
-  { date: "05.23.", value: 98 },
-  { date: "05.24.", value: null },
-  { date: "05.25.", value: 32 },
-  { date: "05.26.", value: 60 },
+  { date: "05.20.", value: 1890 },
+  { date: "05.21.", value: 2007 },
+  { date: "05.22.", value: 2100 },
+  { date: "05.23.", value: 3234 },
+  { date: "05.24.", value: 0 },
+  { date: "05.25.", value: 2134 },
+  { date: "05.26.", value: 1215 },
 ];
 
 const Overview = () => {
@@ -23,6 +23,7 @@ const Overview = () => {
         width: "100%",
         height: "100%",
         gap: 4,
+        p: 2,
       }}
     >
       <Box>
@@ -33,10 +34,9 @@ const Overview = () => {
           sx={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateRows: "200px",
             width: "100%",
-            height: "250px",
             gap: 2,
-            background: "pink",
             "& > *": {
               height: "inherit",
               overflow: "hidden",
@@ -55,7 +55,7 @@ const Overview = () => {
             <Typography level="title-sm" color="neutral">
               Napi tápanyag-bevitel
             </Typography>
-            <CalorieGoalDetails current={4000} goal={3000} />
+            <CalorieGoalDetails current={2000} goal={3000} />
           </Card>{" "}
           <Card
             sx={{

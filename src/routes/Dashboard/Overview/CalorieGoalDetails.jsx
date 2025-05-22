@@ -12,57 +12,34 @@ const CalorieGoalDetails = ({ current, goal }) => {
 
   return (
     <>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        gap={2}
-        flex={1}
-      >
-        <Stack>
+      <Stack direction="row" gap={2}>
+        <Stack alignItems="center" gap={1} flex={1}>
+          <Stack direction="column" alignItems="center" gap="2px">
+            <img src={FoodIcon} alt="food" width={24} height={24} />
+            <Typography level="title-sm" fontWeight={400}>
+              Bevitt
+            </Typography>
+            <Typography level="body-lg" fontWeight={700}>
+              {current} kcal
+            </Typography>
+          </Stack>
+        </Stack>
+        <Stack gap="4px" flex={1} justifyContent="center" alignItems="center">
           <DailyGoalProgress
             current={current}
             goal={goal}
             size="md"
             type="circular"
           />
-          <Stack flex={1} justifyContent="center" alignItems="center">
-            <Typography
-              level="title-sm"
-              color={calorieDifference > 0 ? "danger" : "primary"}
-            >
-              {calorieDifference > 0 ? "Túllépve" : "Maradt"}
-            </Typography>
-            <Typography
-              level="body-sm"
-              fontWeight={400}
-              color={calorieDifference > 0 ? "danger" : "primary"}
-            >
-              {Math.abs(calorieDifference)} kcal
-            </Typography>
-          </Stack>
         </Stack>
-
-        <Stack justifyContent="space-between" width="100%" textAlign="center">
-          <Stack alignItems="center" gap={1} flex={1}>
-            <Stack direction="row" gap={2}>
-              <img src={FoodIcon} alt="food" width={24} height={24} />
-              <Stack>
-                <Typography level="title-sm">Bevitt</Typography>
-                <Typography level="body-sm" fontWeight={600}>
-                  {current} kcal
-                </Typography>
-              </Stack>
-            </Stack>
-          </Stack>
-
-          <Stack alignItems="center" gap={1} flex={1}>
-            <img src={TargetIcon} alt="food" width={24} height={24} />
-            <Typography level="title-sm">Cél</Typography>
-            <Typography level="body-sm" fontWeight={600}>
-              {goal} kcal
-            </Typography>
-          </Stack>
+        <Stack direction="column" alignItems="center" gap="2px" flex={1}>
+          <img src={TargetIcon} alt="food" width={24} height={24} />
+          <Typography level="title-sm" fontWeight={400}>
+            Cél
+          </Typography>
+          <Typography level="body-lg" fontWeight={700}>
+            {goal} kcal
+          </Typography>
         </Stack>
       </Stack>{" "}
       {calorieDifference > 0 ? (

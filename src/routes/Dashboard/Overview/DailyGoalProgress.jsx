@@ -31,6 +31,8 @@ const DailyGoalProgress = ({ current, goal, size, type }) => {
           value={Number(value) >= 100 ? 100 : Number(value)}
           sx={{
             "--CircularProgress-size": `${ProgressSizes[size].dimension}px`,
+            display: "flex",
+            flexDirection: "column",
           }}
           color={progressColor}
           key="calorieRatio"

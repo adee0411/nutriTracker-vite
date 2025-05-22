@@ -13,6 +13,7 @@ const AlertBox = ({ calorieDifference }) => {
         level="body-sm"
         fontSize={12}
         color="warning"
+        width="100%"
       >
         A mai napon{" "}
         <Typography fontWeight={700}>{calorieDifference} kcal</Typography>{" "}
