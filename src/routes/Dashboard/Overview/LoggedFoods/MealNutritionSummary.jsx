@@ -133,17 +133,21 @@ const MealNutritionSummary = ({ isSimple }) => {
         py: !isSimple ? 3 : 2,
         borderRadius: "md",
         boxShadow: "md",
+        width: "70%",
+        marginInline: "auto",
       }}
       color="primary"
-      variant="soft"
+      variant="plain"
     >
-      {!isSimple ? (
-        <Typography textAlign="center" level="h5" mb={2}>
-          {`${currentDate} - ${formattedMealTitle}`}
-        </Typography>
-      ) : (
-        ""
-      )}
+      <Typography
+        textAlign="center"
+        level="h5"
+        mb={2}
+        color="neutral"
+        variant="plain"
+      >
+        {`${currentDate} - ${formattedMealTitle}`}
+      </Typography>
 
       <Stack mt={0} gap={2}>
         <Stack direction="row" gap={2} justifyContent="space-between" flex={1}>

@@ -36,7 +36,7 @@ const Header = () => {
         color="primary"
         variant="plain"
       >
-        <Dropdown>
+        <Dropdown open={true}>
           <MenuButton variant="plain" color="neutral">
             Eredményeim: 3 <RiArrowDropDownFill fontSize={32} />
           </MenuButton>

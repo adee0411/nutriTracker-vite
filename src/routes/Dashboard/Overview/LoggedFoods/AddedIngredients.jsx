@@ -1,4 +1,4 @@
-import { Stack } from "@mui/joy";
+import { Stack, Typography } from "@mui/joy";
 
 import IngredientListHeader from "./IngredientListHeader";
 import IngredientList from "./IngredientList";
@@ -15,6 +15,28 @@ const AddedIngredients = ({ mealName }) => {
 
   /*** TEST*** */
   const ingredientList = [
+    {
+      ingredientName: "csirkecsöcs",
+      amount: 200,
+      unit: "g",
+      nutritionData: {
+        protein: 20,
+        carb: 1,
+        fat: 0,
+        energy: 80,
+      },
+    },
+    {
+      ingredientName: "csirkecsöcs",
+      amount: 200,
+      unit: "g",
+      nutritionData: {
+        protein: 20,
+        carb: 1,
+        fat: 0,
+        energy: 80,
+      },
+    },
     {
       ingredientName: "csirkecsöcs",
       amount: 200,

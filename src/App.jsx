@@ -12,8 +12,12 @@ import AuthProvider from "../backend/authentication/AuthProvider";
 import { Provider } from "react-redux";
 
 const theme = extendTheme({
-  cssVarPrefix: "mode-toggle",
-  colorSchemeSelector: ".demo_mode-toggle-%s",
+  //cssVarPrefix: "mode-toggle",
+  //colorSchemeSelector: ".demo_mode-toggle-%s",
+  fontFamily: {
+    body: "Poppins, sans-serif",
+    display: "Poppins, sans-serif",
+  },
 });
 
 const router = createBrowserRouter([
@@ -41,11 +45,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthProvider>
-      <CssVarsProvider theme={theme}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <CssVarsProvider theme={theme}>
           <RouterProvider router={router}></RouterProvider>
-        </Provider>
-      </CssVarsProvider>
+        </CssVarsProvider>
+      </Provider>
     </AuthProvider>
   );
 }

@@ -1,4 +1,12 @@
-import { Stack, Button } from "@mui/joy";
+import {
+  Stack,
+  Typography,
+  Card,
+  ButtonGroup,
+  IconButton,
+  CardOverflow,
+  AspectRatio,
+} from "@mui/joy";
 
 import { Link } from "react-router-dom";
 
@@ -56,20 +64,26 @@ const MealDetails = () => {
 
   return (
     <>
-      <MealNutritionSummary />
-      <AddedIngredients mealName={mealTitle} />
-      {/**       <Stack>
-        {mealIngredients.length === 0 || mealIngredients === null ? (
-          <Stack alignItems="center">
-            <EmptyListPlaceholder text="A lista üres. Adj hozzá alapanyagokat!" />
-            <Link to="add-food" viewTransition style={{ width: "fit-content" }}>
-              <Button>Hozzáadás</Button>
-            </Link>
+      <Card variant="plain" sx={{ boxShadow: "md" }}>
+        <Stack gap={2}>
+          <Stack>
+            <MealNutritionSummary isSimple={true} />
+            <AddedIngredients mealName={mealTitle} />
+            {/**       <Stack>
+  {mealIngredients.length === 0 || mealIngredients === null ? (
+    <Stack alignItems="center">
+      <EmptyListPlaceholder text="A lista üres. Adj hozzá alapanyagokat!" />
+      <Link to="add-food" viewTransition style={{ width: "fit-content" }}>
+        <Button>Hozzáadás</Button>
+      </Link>
+    </Stack>
+  ) : (
+    <AddedIngredients mealName={mealTitle} />
+  )}
+</Stack>*/}
           </Stack>
-        ) : (
-          <AddedIngredients mealName={mealTitle} />
-        )}
-      </Stack>*/}
+        </Stack>
+      </Card>
     </>
   );
 };
