@@ -12,7 +12,7 @@ import MealNutritionSummaryMacro from "./MealNutritionSummaryMacro";
 import CarbIcon from "../../../../assets/icons/carbohydrate.png";
 import ProteinIcon from "../../../../assets/icons/proteins.png";
 import FatIcon from "../../../../assets/icons/pizza-slice.png";
-import CalorieIcon from "../../../../assets/icons/calories.png";
+import CalorieIcon from "../../../../assets/icons/burn_outlined_64.png";
 
 import { CiWarning } from "react-icons/ci";
 
@@ -133,21 +133,37 @@ const MealNutritionSummary = ({ isSimple }) => {
         py: !isSimple ? 3 : 2,
         borderRadius: "md",
         boxShadow: "md",
-        width: "70%",
+        width: "100%",
         marginInline: "auto",
       }}
       color="primary"
       variant="plain"
     >
-      <Typography
-        textAlign="center"
-        level="h5"
-        mb={2}
-        color="neutral"
-        variant="plain"
-      >
-        {`${currentDate} - ${formattedMealTitle}`}
-      </Typography>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography
+          level="title-lg"
+          mb={2}
+          color="neutral"
+          variant="plain"
+          fontWeight={600}
+          fontSize={26}
+        >
+          {formattedMealTitle}
+        </Typography>
+        <Typography
+          level="title-lg"
+          mb={2}
+          color="neutral"
+          variant="plain"
+          fontWeight={600}
+          fontSize={26}
+        >
+          {mealNutritionData.energy}{" "}
+          <Typography component="span" fontSize={18} fontWeight={400}>
+            kcal
+          </Typography>
+        </Typography>
+      </Stack>
 
       <Stack mt={0} gap={2}>
         <Stack direction="row" gap={2} justifyContent="space-between" flex={1}>

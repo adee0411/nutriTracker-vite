@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   Grid,
@@ -10,14 +11,15 @@ import {
   Tabs,
   TabList,
   Tab,
+  tabClasses,
 } from "@mui/joy";
 import CalorieGoalDetails from "./CalorieGoalDetails";
 import Calendar from "./Calendar/Calendar";
-
 import PrevCalories from "./PrevCalories";
 import MealDetails from "./LoggedFoods/MealDetails";
-import { useState } from "react";
-import { tabClasses } from "@mui/joy";
+
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const TEST_CAL_DATA = [
   { date: "05.20.", value: 1890 },
@@ -35,7 +37,7 @@ const Overview = () => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "1fr 400px",
+        gridTemplateColumns: "1fr 300px",
         width: "100%",
         height: "100%",
         gap: 4,
@@ -88,9 +90,25 @@ const Overview = () => {
             }}
             variant="plain"
           >
-            <Typography level="title-sm" color="neutral">
-              Elmúlt 7 nap
-            </Typography>
+            <Stack direction="row" justifyContent="space-between">
+              <Typography level="title-sm" color="neutral">
+                Elmúlt 7 nap
+              </Typography>
+              <ButtonGroup
+                variant="plain"
+                color="neutral"
+                size="sm"
+                spacing={2}
+              >
+                <Button>
+                  <IoIosArrowBack />
+                </Button>
+                <Button>
+                  <IoIosArrowForward />
+                </Button>
+              </ButtonGroup>
+            </Stack>
+
             <PrevCalories calData={TEST_CAL_DATA} />
           </Card>{" "}
           <Card
@@ -111,26 +129,31 @@ const Overview = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: "repeat(12, 1fr)",
             gap: 2,
           }}
         >
-          <Stack>
+          <Stack sx={{ gridColumn: "1 / 6" }}>
             <Tabs
               aria-label="tabs"
               defaultValue={0}
               sx={{ bgcolor: "transparent" }}
+              size="sm"
             >
               <TabList
                 disableUnderline
                 sx={{
-                  p: 0.5,
+                  p: 1,
                   gap: 0.5,
                   borderRadius: "xl",
                   bgcolor: "background.level1",
                   [`& .${tabClasses.root}[aria-selected="true"]`]: {
                     boxShadow: "sm",
                     bgcolor: "background.surface",
+                  },
+                  "& > *": {
+                    fontSize: 12,
+                    textAlign: "center",
                   },
                 }}
                 tabFlex={1}

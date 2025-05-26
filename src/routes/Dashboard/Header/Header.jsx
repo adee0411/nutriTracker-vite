@@ -7,6 +7,8 @@ import {
   Typography,
   Switch,
   Avatar,
+  Stack,
+  ListDivider,
 } from "@mui/joy";
 import { switchClasses } from "@mui/joy/Switch";
 
@@ -15,6 +17,9 @@ import "./Header.css";
 import { IoSunnyOutline } from "react-icons/io5";
 import { GoMoon } from "react-icons/go";
 import { RiArrowDropDownFill } from "react-icons/ri";
+import { LiaBurnSolid } from "react-icons/lia";
+import { IoFootstepsOutline } from "react-icons/io5";
+import { IoScaleOutline } from "react-icons/io5";
 import AvatarImg from "../../../assets/images/avatar.jpg";
 import GoldBadge from "../../../assets/icons/gold-medal_128.png";
 import BlueBadge from "../../../assets/icons/blue-medal_128.png";
@@ -36,7 +41,32 @@ const Header = () => {
         color="primary"
         variant="plain"
       >
-        <Dropdown open={true}>
+        <Stack direction={"row"} spacing={2} alignItems="center">
+          <Typography level="title-md">Céljaim:</Typography>
+          <Stack direction="row" spacing={4}>
+            <Stack direction="row" spacing={0.5} alignItems={"center"}>
+              <Typography>
+                {" "}
+                <LiaBurnSolid />
+              </Typography>
+
+              <Typography>3000 kcal</Typography>
+            </Stack>
+            <Stack direction={"row"} spacing={0.5} alignItems={"center"}>
+              <Typography>
+                <IoFootstepsOutline />
+              </Typography>
+              <Typography>10.000</Typography>
+            </Stack>
+            <Stack direction={"row"} spacing={0.5} alignItems={"center"}>
+              <Typography>
+                <IoScaleOutline />
+              </Typography>
+              <Typography>90kg</Typography>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Dropdown>
           <MenuButton variant="plain" color="neutral">
             Eredményeim: 3 <RiArrowDropDownFill fontSize={32} />
           </MenuButton>
