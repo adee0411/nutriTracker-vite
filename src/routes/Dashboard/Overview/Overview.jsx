@@ -17,9 +17,11 @@ import CalorieGoalDetails from "./CalorieGoalDetails";
 import Calendar from "./Calendar/Calendar";
 import PrevCalories from "./PrevCalories";
 import MealDetails from "./LoggedFoods/MealDetails";
+import SearchForm from "./SearchIngredient/SearchForm";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import QuickIngredientTab from "./SearchIngredient/QuickSearch/QuickIngredientTab";
 
 const TEST_CAL_DATA = [
   { date: "05.20.", value: 1890 },
@@ -133,11 +135,28 @@ const Overview = () => {
             gap: 2,
           }}
         >
-          <Stack sx={{ gridColumn: "1 / 6" }}>
+          <Box sx={{ gridColumn: "1 / 8" }}>
+            <Typography>Alapanyag keresése</Typography>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: 2,
+                height: "100%",
+              }}
+            >
+              <SearchForm />
+              <Box>
+                <Typography>Kiválasztott alapanyag</Typography>
+              </Box>
+              <QuickIngredientTab />
+            </Box>
+          </Box>
+          <Stack sx={{ gridColumn: "-1 / 8" }}>
             <Tabs
               aria-label="tabs"
               defaultValue={0}
-              sx={{ bgcolor: "transparent" }}
+              sx={{ bgcolor: "transparent", mb: 2 }}
               size="sm"
             >
               <TabList

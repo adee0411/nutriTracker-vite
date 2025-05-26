@@ -101,7 +101,7 @@ const IngredientListActions = ({ listName, listActions, mealName }) => {
 
   return (
     <Stack direction="row" gap={2}>
-      {listName === "addedIngredients" ||
+      {/*       {listName === "addedIngredients" ||
       (listName === "customIngredients" &&
         !location.pathname.includes("custom-ingredients")) ? (
         <IconButton color="primary" variant="solid" size="sm">
@@ -134,7 +134,7 @@ const IngredientListActions = ({ listName, listActions, mealName }) => {
         </IconButton>
       ) : (
         ""
-      )}
+      )} */}
 
       <ButtonGroup size="sm">
         {listActions.map((action) => {

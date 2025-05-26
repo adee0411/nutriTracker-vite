@@ -1,4 +1,4 @@
-import { Alert, Sheet, Stack, Typography } from "@mui/joy";
+import { Alert, Sheet, Stack, Typography, Card } from "@mui/joy";
 
 /* import { useSelector } from "react-redux";
 import { useParams } from "react-router"; */
@@ -114,35 +114,33 @@ const MealNutritionSummary = ({ isSimple }) => {
     carb: 300,
     protein: 400,
     fat: 500,
-    energy: 600,
   };
   const totalNutritionData = {
     carb: 300,
     protein: 400,
     fat: 500,
-    energy: 1700,
   };
   const calorieGoal = 2000;
   const isCalorieSufficit = true;
   const totalEnergyRef = 1000;
+  const mealEnergy = 600;
 
   return (
-    <Sheet
-      sx={{
-        px: 2,
-        py: !isSimple ? 3 : 2,
-        borderRadius: "md",
-        boxShadow: "md",
-        width: "100%",
-        marginInline: "auto",
-      }}
-      color="primary"
+    <Card
       variant="plain"
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        gap: 2,
+        alignItems: "center",
+        justifyContent: "space-between",
+        p: 0,
+        mb: 2,
+      }}
     >
-      <Stack direction="row" justifyContent="space-between">
+      <Stack>
         <Typography
           level="title-lg"
-          mb={2}
           color="neutral"
           variant="plain"
           fontWeight={600}
@@ -152,13 +150,12 @@ const MealNutritionSummary = ({ isSimple }) => {
         </Typography>
         <Typography
           level="title-lg"
-          mb={2}
           color="neutral"
           variant="plain"
           fontWeight={600}
-          fontSize={26}
+          fontSize={22}
         >
-          {mealNutritionData.energy}{" "}
+          {mealEnergy}{" "}
           <Typography component="span" fontSize={18} fontWeight={400}>
             kcal
           </Typography>
@@ -166,7 +163,7 @@ const MealNutritionSummary = ({ isSimple }) => {
       </Stack>
 
       <Stack mt={0} gap={2}>
-        <Stack direction="row" gap={2} justifyContent="space-between" flex={1}>
+        <Stack direction="row" gap={8} flex={1}>
           {Object.entries(mealNutritionData).map((macro) => {
             const macroName = macro[0];
             const macroValue = macro[1];
@@ -236,7 +233,7 @@ const MealNutritionSummary = ({ isSimple }) => {
           ""
         )}
       </Stack>
-    </Sheet>
+    </Card>
   );
 };
 

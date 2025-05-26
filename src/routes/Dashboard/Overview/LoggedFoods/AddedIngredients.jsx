@@ -51,7 +51,7 @@ const AddedIngredients = ({ mealName }) => {
   ];
 
   return (
-    <Stack my={4} gap={2}>
+    <Stack gap={2}>
       <IngredientListHeader
         listTitle="Alapanyagok"
         listName="addedIngredients"

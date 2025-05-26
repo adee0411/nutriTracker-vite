@@ -12,7 +12,7 @@ const CalorieGoalDetails = ({ current, goal }) => {
 
   return (
     <>
-      <Stack direction="row" gap={2}>
+      <Stack direction="row" gap={2} height={"100%"}>
         <Stack alignItems="center" justifyContent="center" gap={1} flex={1}>
           <Stack direction="column" alignItems="center" gap="2px">
             <img src={FoodIcon} alt="food" width={24} height={24} />

@@ -44,25 +44,25 @@ const Header = () => {
         <Stack direction={"row"} spacing={2} alignItems="center">
           <Typography level="title-md">Céljaim:</Typography>
           <Stack direction="row" spacing={4}>
-            <Stack direction="row" spacing={0.5} alignItems={"center"}>
-              <Typography>
+            <Stack direction="row" spacing={1} alignItems={"center"}>
+              <Typography fontSize={16}>
                 {" "}
                 <LiaBurnSolid />
               </Typography>
 
-              <Typography>3000 kcal</Typography>
+              <Typography fontSize={14}>3000 kcal</Typography>
             </Stack>
-            <Stack direction={"row"} spacing={0.5} alignItems={"center"}>
-              <Typography>
+            <Stack direction={"row"} spacing={1} alignItems={"center"}>
+              <Typography fontSize={16}>
                 <IoFootstepsOutline />
               </Typography>
-              <Typography>10.000</Typography>
+              <Typography fontSize={14}>10.000</Typography>
             </Stack>
-            <Stack direction={"row"} spacing={0.5} alignItems={"center"}>
-              <Typography>
+            <Stack direction={"row"} spacing={1} alignItems={"center"}>
+              <Typography fontSize={16}>
                 <IoScaleOutline />
               </Typography>
-              <Typography>90kg</Typography>
+              <Typography fontSize={14}>90kg</Typography>
             </Stack>
           </Stack>
         </Stack>

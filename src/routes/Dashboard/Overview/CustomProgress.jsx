@@ -14,7 +14,7 @@ const CustomProgress = ({ date, value, barMaxValue }) => {
     ratio = 0;
   }
 
-  const fillColor = value >= goal ? "#E47474" : "#0b6bcb";
+  const fillColor = value >= goal ? "#EA9A3E" : "#0b6bcb";
   return (
     <Tooltip
       title={` ${date}: ${value === 0 ? "nincs adat" : `${value} kcal`} `}
