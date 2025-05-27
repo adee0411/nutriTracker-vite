@@ -4,11 +4,15 @@ import { Calendar as ReactCalendar } from "react-calendar";
 import { Card } from "@mui/joy";
 
 const Calendar = () => {
-  const [value, onChange] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const handleDateChange = (value, event) => {
+    setSelectedDate(value);
+  };
   return (
     <Card variant="plain" sx={{ boxShadow: "md" }}>
       <div className="calendar-container">
-        <ReactCalendar />
+        <ReactCalendar onChange={handleDateChange} value={selectedDate} />
       </div>
     </Card>
   );
