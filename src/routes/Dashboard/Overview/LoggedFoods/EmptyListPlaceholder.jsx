@@ -17,7 +17,9 @@ const EmptyListPlaceholder = ({ text }) => {
       }}
     >
       <img width="50%" src={EmptyListImg} alt="no-data-img" />
-      <Typography color="neutral">{text}</Typography>
+      <Typography color="neutral" textAlign="center">
+        {text}
+      </Typography>
     </Sheet>
   );
 };

@@ -12,7 +12,11 @@ const Calendar = () => {
   return (
     <Card variant="plain" sx={{ boxShadow: "md" }}>
       <div className="calendar-container">
-        <ReactCalendar onChange={handleDateChange} value={selectedDate} />
+        <ReactCalendar
+          onChange={handleDateChange}
+          value={selectedDate}
+          maxDate={new Date()}
+        />
       </div>
     </Card>
   );

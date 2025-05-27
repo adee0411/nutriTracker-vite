@@ -18,6 +18,9 @@ import Calendar from "./Calendar/Calendar";
 import PrevCalories from "./PrevCalories";
 import MealDetails from "./LoggedFoods/MealDetails";
 import SearchForm from "./SearchIngredient/SearchForm";
+import CurrentDayCalories from "./Charts/CurrentDayCalories";
+
+import "./Overview.css";
 
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -38,16 +41,7 @@ const Overview = () => {
   const [isActive, setIsActive] = useState(true);
 
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: "1fr 300px",
-        width: "100%",
-        height: "100%",
-        gap: 4,
-        p: 2,
-      }}
-    >
+    <Box className="main-grid">
       <Box>
         <Typography
           level="h1"
@@ -58,34 +52,8 @@ const Overview = () => {
         >
           Áttekintés (05. 20.)
         </Typography>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gridTemplateRows: "200px",
-            width: "100%",
-            gap: 2,
-            "& > *": {
-              height: "inherit",
-              overflow: "hidden",
-            },
-            mb: 2,
-          }}
-        >
-          <Card
-            sx={{
-              boxShadow: "md",
-              flex: 1,
-              p: 2,
-            }}
-            color="neutral"
-            variant="plain"
-          >
-            <Typography level="title-sm" color="neutral">
-              Napi tápanyag-bevitel
-            </Typography>
-            <CalorieGoalDetails current={2000} goal={3000} />
-          </Card>{" "}
+        <Box className="main-grid__charts">
+          <CurrentDayCalories />
           <Card
             sx={{
               boxShadow: "md",
@@ -138,24 +106,49 @@ const Overview = () => {
           }}
         >
           <Box sx={{ gridColumn: "1 / 8" }}>
-            <Typography>Alapanyag keresése</Typography>
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: 2,
-                height: "100%",
-              }}
-            >
-              <SearchForm />
+            <Box>
+              <Tabs
+                aria-label="ingredient-search-tabs"
+                defaultValue={0}
+                sx={{ bgcolor: "transparent", mb: 2 }}
+                size="sm"
+              >
+                <TabList
+                  disableUnderline
+                  sx={{
+                    p: 1,
+                    gap: 0.5,
+                    borderRadius: "xl",
+                    bgcolor: "background.level1",
+                    [`& .${tabClasses.root}[aria-selected="true"]`]: {
+                      boxShadow: "sm",
+                      bgcolor: "background.surface",
+                    },
+                    "& > *": {
+                      fontSize: 12,
+                    },
+                  }}
+                  tabFlex={1}
+                >
+                  <Tab disableIndicator sx={{ textAlign: "center" }}>
+                    Alapanyag keresése
+                  </Tab>
+                  <Tab disableIndicator sx={{ textAlign: "center" }}>
+                    Gyors elérés
+                  </Tab>
+                </TabList>
+              </Tabs>
+              {/*               <SearchForm />
               <Box>
                 <Typography>Kiválasztott alapanyag</Typography>
               </Box>
-              <QuickIngredientTab />
+              <QuickIngredientTab /> */}
             </Box>
           </Box>
           <Stack sx={{ gridColumn: "-1 / 8" }}>
-            <Tabs
+            {/**
+             * 
+             *             <Tabs
               aria-label="tabs"
               defaultValue={0}
               sx={{ bgcolor: "transparent", mb: 2 }}
@@ -174,18 +167,29 @@ const Overview = () => {
                   },
                   "& > *": {
                     fontSize: 12,
-                    textAlign: "center",
                   },
                 }}
                 tabFlex={1}
               >
-                <Tab disableIndicator>Reggeli</Tab>
-                <Tab disableIndicator>2. étkezés</Tab>
-                <Tab disableIndicator>3. étkezés</Tab>
-                <Tab disableIndicator>4. étkezés</Tab>
-                <Tab disableIndicator>Nasi</Tab>
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  Reggeli
+                </Tab>
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  2. étkezés
+                </Tab>
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  3. étkezés
+                </Tab>
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  4. étkezés
+                </Tab>
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  Nasi
+                </Tab>
               </TabList>
             </Tabs>
+             */}
+
             {/** FOOD LOGGING AND FOOD SEARCH */}
             <MealDetails />
           </Stack>

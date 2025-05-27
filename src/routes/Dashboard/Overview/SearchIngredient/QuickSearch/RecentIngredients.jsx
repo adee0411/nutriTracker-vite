@@ -8,11 +8,48 @@ import { Stack } from "@mui/joy";
 import { useParams } from "react-router";
 
 const RecentIngredients = () => {
-  const { recentIngredients } = useSelector((state) => state.ingredient);
+  /*   const { recentIngredients } = useSelector((state) => state.ingredient);*/
   const { mealTitle } = useParams();
 
   const listActions = [];
   const ingredientActions = ["log", "addToFavorites"];
+
+  /*** TEST*** */
+  const recentIngredients = [
+    {
+      ingredientName: "csirkecsöcs",
+      amount: 200,
+      unit: "g",
+      nutritionData: {
+        protein: 20,
+        carb: 1,
+        fat: 0,
+        energy: 80,
+      },
+    },
+    {
+      ingredientName: "csirkecsöcs",
+      amount: 200,
+      unit: "g",
+      nutritionData: {
+        protein: 20,
+        carb: 1,
+        fat: 0,
+        energy: 80,
+      },
+    },
+    {
+      ingredientName: "csirkecsöcs",
+      amount: 200,
+      unit: "g",
+      nutritionData: {
+        protein: 20,
+        carb: 1,
+        fat: 0,
+        energy: 80,
+      },
+    },
+  ];
 
   return (
     <>
