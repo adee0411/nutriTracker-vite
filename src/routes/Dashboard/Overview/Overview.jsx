@@ -15,34 +15,24 @@ import {
 } from "@mui/joy";
 import CalorieGoalDetails from "./CalorieGoalDetails";
 import Calendar from "./Calendar/Calendar";
-import PrevCalories from "./PrevCalories";
+import PrevCalories from "./Charts/PrevCalories";
 import MealDetails from "./LoggedFoods/MealDetails";
 import SearchForm from "./SearchIngredient/SearchForm";
 import CurrentDayCalories from "./Charts/CurrentDayCalories";
 
 import "./Overview.css";
 
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
 import QuickIngredientTab from "./SearchIngredient/QuickSearch/QuickIngredientTab";
 import MUICalendar from "./Calendar/MUICalendar";
-
-const TEST_CAL_DATA = [
-  { date: "05.20.", value: 1890 },
-  { date: "05.21.", value: 2007 },
-  { date: "05.22.", value: 2100 },
-  { date: "05.23.", value: 3234 },
-  { date: "05.24.", value: 0 },
-  { date: "05.25.", value: 2134 },
-  { date: "05.26.", value: 1215 },
-];
+import LastSevenDaysData from "./Charts/LastSevenDaysData";
 
 const Overview = () => {
   const [isActive, setIsActive] = useState(true);
 
   return (
     <Box className="main-grid">
-      <Box>
+      {/*** Main visual content and data ***/}
+      <Box className="visual-cont">
         <Typography
           level="h1"
           color="neutral"
@@ -52,37 +42,10 @@ const Overview = () => {
         >
           Áttekintés (05. 20.)
         </Typography>
-        <Box className="main-grid__charts">
+        {/*** Overview header and charts ***/}
+        <Box className="visual-cont__charts">
           <CurrentDayCalories />
-          <Card
-            sx={{
-              boxShadow: "md",
-              flex: 1,
-              p: 2,
-            }}
-            variant="plain"
-          >
-            <Stack direction="row" justifyContent="space-between">
-              <Typography level="title-sm" color="neutral">
-                Elmúlt 7 nap
-              </Typography>
-              <ButtonGroup
-                variant="plain"
-                color="neutral"
-                size="sm"
-                spacing={2}
-              >
-                <Button>
-                  <IoIosArrowBack />
-                </Button>
-                <Button>
-                  <IoIosArrowForward />
-                </Button>
-              </ButtonGroup>
-            </Stack>
-
-            <PrevCalories calData={TEST_CAL_DATA} />
-          </Card>{" "}
+          <LastSevenDaysData />
           <Card
             sx={{
               boxShadow: "md",
@@ -98,54 +61,47 @@ const Overview = () => {
             </Typography>
           </Card>{" "}
         </Box>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(12, 1fr)",
-            gap: 2,
-          }}
-        >
-          <Box sx={{ gridColumn: "1 / 8" }}>
-            <Box>
-              <Tabs
-                aria-label="ingredient-search-tabs"
-                defaultValue={0}
-                sx={{ bgcolor: "transparent", mb: 2 }}
-                size="sm"
+        {/*** Meal logging and tracking ***/}
+        <Box className="food-log">
+          <Box className="food-log__add-food">
+            <Tabs
+              aria-label="ingredient-search-tabs"
+              defaultValue={0}
+              sx={{ bgcolor: "transparent", mb: 2 }}
+              size="sm"
+            >
+              <TabList
+                disableUnderline
+                sx={{
+                  p: 1,
+                  gap: 0.5,
+                  borderRadius: "xl",
+                  bgcolor: "background.level1",
+                  [`& .${tabClasses.root}[aria-selected="true"]`]: {
+                    boxShadow: "sm",
+                    bgcolor: "background.surface",
+                  },
+                  "& > *": {
+                    fontSize: 12,
+                  },
+                }}
+                tabFlex={1}
               >
-                <TabList
-                  disableUnderline
-                  sx={{
-                    p: 1,
-                    gap: 0.5,
-                    borderRadius: "xl",
-                    bgcolor: "background.level1",
-                    [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                      boxShadow: "sm",
-                      bgcolor: "background.surface",
-                    },
-                    "& > *": {
-                      fontSize: 12,
-                    },
-                  }}
-                  tabFlex={1}
-                >
-                  <Tab disableIndicator sx={{ textAlign: "center" }}>
-                    Alapanyag keresése
-                  </Tab>
-                  <Tab disableIndicator sx={{ textAlign: "center" }}>
-                    Gyors elérés
-                  </Tab>
-                </TabList>
-              </Tabs>
-              {/*               <SearchForm />
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  Alapanyag keresése
+                </Tab>
+                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                  Gyors elérés
+                </Tab>
+              </TabList>
+            </Tabs>
+            {/*               <SearchForm />
               <Box>
                 <Typography>Kiválasztott alapanyag</Typography>
               </Box>
               <QuickIngredientTab /> */}
-            </Box>
           </Box>
-          <Stack sx={{ gridColumn: "-1 / 8" }}>
+          <Box className="food-log__logged-food">
             {/**
              * 
              *             <Tabs
@@ -192,11 +148,12 @@ const Overview = () => {
 
             {/** FOOD LOGGING AND FOOD SEARCH */}
             <MealDetails />
-          </Stack>
+          </Box>
         </Box>
       </Box>
-
-      <Calendar />
+      <Box className="aside">
+        <Calendar />
+      </Box>
     </Box>
   );
 };

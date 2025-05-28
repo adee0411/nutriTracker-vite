@@ -7,7 +7,7 @@
   padding: 16px;
 }
 
-.main-grid__charts {
+.visual-cont__charts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 200px;
@@ -16,7 +16,21 @@
   margin-bottom: 2px;
 }
 
-.main-grid__charts > * {
+.visual-cont__charts > * {
   height: inherit;
   overflow: hidden;
+}
+
+.food-log {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.food-log__add-food {
+  grid-column: 1 / 8;
+}
+
+.food-log__logged-food {
+  grid-column: -1 / 8;
 }

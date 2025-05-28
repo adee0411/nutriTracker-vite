@@ -15,7 +15,7 @@ const CurrentDayCalories = () => {
       <Typography level="title-sm" color="neutral">
         Napi tápanyag-bevitel
       </Typography>
-      <CalorieGoalDetails current={2000} goal={3000} />
+      <CalorieGoalDetails current={2100} goal={2000} />
     </Card>
   );
 };

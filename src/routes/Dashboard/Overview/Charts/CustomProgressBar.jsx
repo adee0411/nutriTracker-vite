@@ -1,10 +1,9 @@
 import React from "react";
-import "./customProgress.css";
+import "./customProgressBar.css";
 import { Tooltip } from "@mui/joy";
 
-const CustomProgress = ({ date, value, barMaxValue }) => {
+const CustomProgressBar = ({ date, value, barMaxValue, goal, unit }) => {
   let ratio = (value / barMaxValue) * 100;
-  const goal = 2000;
 
   // Prevent fill value to overflow
   if (ratio > 100) {
@@ -17,7 +16,7 @@ const CustomProgress = ({ date, value, barMaxValue }) => {
   const fillColor = value >= goal ? "#EA9A3E" : "#0b6bcb";
   return (
     <Tooltip
-      title={` ${date}: ${value === 0 ? "nincs adat" : `${value} kcal`} `}
+      title={` ${date}: ${value === 0 ? "nincs adat" : `${value} ${unit}`} `}
       size="sm"
       sx={{
         fontWeight: 200,
@@ -33,4 +32,4 @@ const CustomProgress = ({ date, value, barMaxValue }) => {
   );
 };
 
-export default CustomProgress;
+export default CustomProgressBar;
