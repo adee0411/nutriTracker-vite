@@ -6,7 +6,8 @@ import {
   ListItemDecorator,
   Stack,
 } from "@mui/joy";
-import { useDispatch, useSelector } from "react-redux";
+import IngredientListItemContent from "../LoggedFoods/IngredientListItemContent";
+/* import { useDispatch, useSelector } from "react-redux"; */
 
 /* import {
   setSelectedIngredient,
@@ -64,7 +65,6 @@ const ResultList = ({ resultList }) => {
             <ListItem key={result.id}>
               <ListItemButton
                 sx={{
-                  borderRadius: 0,
                   fontWeight: result.id === selectedIngredient?.id ? 500 : 300,
                 }}
                 id={result.id}
@@ -93,6 +93,21 @@ const ResultList = ({ resultList }) => {
             </ListItem>
           );
         })}
+        <ListItem>
+          <ListItemButton>
+            <IngredientListItemContent
+              ingredientName="Teszt"
+              amount={100}
+              unit="g"
+              nutritionData={{
+                energy: 10,
+                protein: 20,
+                carb: 30,
+                fat: 40,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Stack>
   );

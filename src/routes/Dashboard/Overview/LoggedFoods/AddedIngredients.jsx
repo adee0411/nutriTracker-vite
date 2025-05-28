@@ -16,6 +16,7 @@ const AddedIngredients = ({ mealName }) => {
   /*** TEST*** */
   const ingredientList = [
     {
+      id: "001",
       ingredientName: "csirkecsöcs",
       amount: 200,
       unit: "g",
@@ -27,6 +28,7 @@ const AddedIngredients = ({ mealName }) => {
       },
     },
     {
+      id: "002",
       ingredientName: "csirkecsöcs",
       amount: 200,
       unit: "g",
@@ -38,6 +40,7 @@ const AddedIngredients = ({ mealName }) => {
       },
     },
     {
+      id: "003",
       ingredientName: "csirkecsöcs",
       amount: 200,
       unit: "g",

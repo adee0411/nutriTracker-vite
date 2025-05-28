@@ -16,7 +16,11 @@ const EmptyListPlaceholder = ({ text }) => {
         mb: 5,
       }}
     >
-      <img width="50%" src={EmptyListImg} alt="no-data-img" />
+      <img
+        style={{ width: "max(10%, 200px)" }}
+        src={EmptyListImg}
+        alt="no-data-img"
+      />
       <Typography color="neutral" textAlign="center">
         {text}
       </Typography>

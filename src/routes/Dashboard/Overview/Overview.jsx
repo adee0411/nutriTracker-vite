@@ -18,6 +18,7 @@ import {
   Menu,
   MenuItem,
   ListItemDecorator,
+  TabPanel,
 } from "@mui/joy";
 
 import "./Overview.css";
@@ -26,11 +27,54 @@ import Calendar from "./Calendar/Calendar";
 import MealDetails from "./LoggedFoods/MealDetails";
 import CurrentDayCalories from "./Charts/CurrentDayCalories";
 import LastSevenDaysData from "./Charts/LastSevenDaysData";
+import SearchForm from "../Overview/SearchIngredient/SearchForm";
+import ResultList from "../Overview/SearchIngredient/ResultList";
+import QuickIngredientTab from "../Overview/SearchIngredient/QuickSearch/QuickIngredientTab";
 
 import { IoAdd } from "react-icons/io5";
 import { IoScaleOutline } from "react-icons/io5";
 import { IoFootstepsOutline } from "react-icons/io5";
 import { IoIosBicycle } from "react-icons/io";
+import SelectedIngredient from "./SearchIngredient/SelectedIngredient";
+
+const TEST_RESULTS = [
+  {
+    id: "001",
+    ingredientName: "csirkecsöcs",
+    amount: 200,
+    unit: "g",
+    nutritionData: {
+      protein: 20,
+      carb: 1,
+      fat: 0,
+      energy: 80,
+    },
+  },
+  {
+    id: "002",
+    ingredientName: "csirkecsöcs",
+    amount: 200,
+    unit: "g",
+    nutritionData: {
+      protein: 20,
+      carb: 1,
+      fat: 0,
+      energy: 80,
+    },
+  },
+  {
+    id: "003",
+    ingredientName: "csirkecsöcs",
+    amount: 200,
+    unit: "g",
+    nutritionData: {
+      protein: 20,
+      carb: 1,
+      fat: 0,
+      energy: 80,
+    },
+  },
+];
 
 const Overview = () => {
   const [isActive, setIsActive] = useState(true);
@@ -53,7 +97,13 @@ const Overview = () => {
               variant="solid"
               color="primary"
               slots={{ root: IconButton }}
-              slotProps={{ root: { variant: "outlined", color: "neutral" } }}
+              slotProps={{
+                root: {
+                  variant: "outlined",
+                  color: "neutral",
+                  title: "Naplóz",
+                },
+              }}
               sx={{
                 borderRadius: "50%",
                 width: "30px",
@@ -109,7 +159,7 @@ const Overview = () => {
           <Box className="food-log__add-food">
             <Tabs
               aria-label="ingredient-search-tabs"
-              defaultValue={0}
+              defaultValue="search"
               sx={{ bgcolor: "transparent", mb: 2 }}
               size="sm"
             >
@@ -117,7 +167,7 @@ const Overview = () => {
                 disableUnderline
                 sx={{
                   p: 1,
-                  gap: 0.5,
+                  gap: 4,
                   borderRadius: "xl",
                   bgcolor: "background.level1",
                   [`& .${tabClasses.root}[aria-selected="true"]`]: {
@@ -130,24 +180,39 @@ const Overview = () => {
                 }}
                 tabFlex={1}
               >
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                <Tab
+                  disableIndicator
+                  sx={{ textAlign: "center" }}
+                  value="search"
+                >
                   Alapanyag keresése
                 </Tab>
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
+                <Tab
+                  disableIndicator
+                  sx={{ textAlign: "center" }}
+                  value="quick"
+                >
                   Gyors elérés
                 </Tab>
               </TabList>
+              <TabPanel value="search" sx={{ p: 0 }}>
+                <Stack
+                  direction="row"
+                  width="100%"
+                  sx={{ "& > *": { flex: 1 } }}
+                  gap={4}
+                >
+                  <SearchForm />
+                  <SelectedIngredient />
+                </Stack>
+              </TabPanel>
+              <TabPanel value="quick" sx={{ p: 0 }}>
+                <QuickIngredientTab />
+              </TabPanel>
             </Tabs>
-            {/*               <SearchForm />
-              <Box>
-                <Typography>Kiválasztott alapanyag</Typography>
-              </Box>
-              <QuickIngredientTab /> */}
           </Box>
           <Box className="food-log__logged-food">
-            {/**
-             * 
-             *             <Tabs
+            <Tabs
               aria-label="tabs"
               defaultValue={0}
               sx={{ bgcolor: "transparent", mb: 2 }}
@@ -187,7 +252,6 @@ const Overview = () => {
                 </Tab>
               </TabList>
             </Tabs>
-             */}
 
             {/** FOOD LOGGING AND FOOD SEARCH */}
             <MealDetails />

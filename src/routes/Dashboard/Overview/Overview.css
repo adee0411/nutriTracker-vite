@@ -13,7 +13,7 @@
   grid-template-rows: 200px;
   width: 100%;
   gap: 16px;
-  margin-bottom: 2px;
+  margin-bottom: 32px;
 }
 
 .visual-cont__charts > * {
@@ -24,7 +24,7 @@
 .food-log {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
+  gap: 32px;
 }
 
 .food-log__add-food {
