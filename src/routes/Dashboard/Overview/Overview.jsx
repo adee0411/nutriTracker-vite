@@ -12,19 +12,25 @@ import {
   TabList,
   Tab,
   tabClasses,
+  Dropdown,
+  MenuButton,
+  IconButton,
+  Menu,
+  MenuItem,
+  ListItemDecorator,
 } from "@mui/joy";
-import CalorieGoalDetails from "./CalorieGoalDetails";
-import Calendar from "./Calendar/Calendar";
-import PrevCalories from "./Charts/PrevCalories";
-import MealDetails from "./LoggedFoods/MealDetails";
-import SearchForm from "./SearchIngredient/SearchForm";
-import CurrentDayCalories from "./Charts/CurrentDayCalories";
 
 import "./Overview.css";
 
-import QuickIngredientTab from "./SearchIngredient/QuickSearch/QuickIngredientTab";
-import MUICalendar from "./Calendar/MUICalendar";
+import Calendar from "./Calendar/Calendar";
+import MealDetails from "./LoggedFoods/MealDetails";
+import CurrentDayCalories from "./Charts/CurrentDayCalories";
 import LastSevenDaysData from "./Charts/LastSevenDaysData";
+
+import { IoAdd } from "react-icons/io5";
+import { IoScaleOutline } from "react-icons/io5";
+import { IoFootstepsOutline } from "react-icons/io5";
+import { IoIosBicycle } from "react-icons/io";
 
 const Overview = () => {
   const [isActive, setIsActive] = useState(true);
@@ -33,15 +39,52 @@ const Overview = () => {
     <Box className="main-grid">
       {/*** Main visual content and data ***/}
       <Box className="visual-cont">
-        <Typography
-          level="h1"
-          color="neutral"
-          fontSize={20}
-          mb={2}
-          fontWeight={500}
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={4}
         >
-          Áttekintés (05. 20.)
-        </Typography>
+          <Typography level="h1" color="neutral" fontSize={20} fontWeight={500}>
+            Áttekintés (05. 20.)
+          </Typography>
+          <Dropdown>
+            <MenuButton
+              variant="solid"
+              color="primary"
+              slots={{ root: IconButton }}
+              slotProps={{ root: { variant: "outlined", color: "neutral" } }}
+              sx={{
+                borderRadius: "50%",
+                width: "30px",
+                height: "30px",
+              }}
+            >
+              <IoAdd />
+            </MenuButton>
+            <Menu placement="bottom-end" sx={{ p: 0 }}>
+              <MenuItem>
+                <ListItemDecorator>
+                  <IoScaleOutline />
+                </ListItemDecorator>
+                Testsúly
+              </MenuItem>
+              <MenuItem>
+                <ListItemDecorator>
+                  <IoFootstepsOutline />
+                </ListItemDecorator>
+                Lépésszám
+              </MenuItem>
+              <MenuItem>
+                <ListItemDecorator>
+                  <IoIosBicycle />
+                </ListItemDecorator>
+                Edzés
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </Stack>
+
         {/*** Overview header and charts ***/}
         <Box className="visual-cont__charts">
           <CurrentDayCalories />
