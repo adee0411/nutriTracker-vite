@@ -17,11 +17,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@fontsource/ballet": "^5.2.5",
     "@fontsource/inter": "^5.1.0",
-    "@fontsource/poppins": "^5.2.6",
-    "@fontsource/raleway": "^5.2.5",
-    "@fontsource/roboto": "^5.2.5",
     "@mui/icons-material": "^7.1.0",
     "@mui/joy": "^5.0.0-beta.52",
     "@mui/material": "^7.1.0",
