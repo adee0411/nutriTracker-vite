@@ -3,13 +3,13 @@
   grid-template-columns: 1fr 300px;
   width: 100%;
   height: 100%;
-  gap: 16px;
+  gap: 32px;
   padding: 16px;
 }
 
 .visual-cont__charts {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 200px;
   width: 100%;
   gap: 16px;

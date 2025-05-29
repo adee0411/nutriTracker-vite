@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/joy";
 import CustomProgressBar from "./CustomProgressBar";
 
-const CustomBarChart = ({ data, goal, unit }) => {
+const CustomBarChart = ({ data, goal, unit, fillType }) => {
   const goalLineStyle = {
     width: "110%",
     height: "0",
@@ -45,6 +45,7 @@ const CustomBarChart = ({ data, goal, unit }) => {
               barMaxValue={barMaxValue}
               unit={unit}
               goal={goal}
+              fillType={fillType}
             />
           );
         })}

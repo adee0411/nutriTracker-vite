@@ -57,7 +57,7 @@ const ResultList = ({ resultList }) => {
           my: 1,
         }}
       >
-        {resultList.map((result) => {
+        {/*resultList.map((result) => {
           const ingredientName =
             result.ingredientName[0].toUpperCase() +
             result.ingredientName.slice(1);
@@ -69,6 +69,7 @@ const ResultList = ({ resultList }) => {
                 }}
                 id={result.id}
                 /*  onClick={handleSelectedIngredient} */
+        /*
               >
                 <Stack direction="row" alignItems="center">
                   {result.id === selectedIngredient?.id ? (
@@ -92,7 +93,7 @@ const ResultList = ({ resultList }) => {
               </ListItemButton>
             </ListItem>
           );
-        })}
+        })*/}
         <ListItem>
           <ListItemButton>
             <IngredientListItemContent

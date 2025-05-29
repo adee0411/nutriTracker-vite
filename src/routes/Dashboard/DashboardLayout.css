@@ -3,7 +3,7 @@
   --sidebar-width: 250px;
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: var(--header-hight) 1fr;
   grid-template-areas:
     "sidebar header"
     "sidebar main";

@@ -1,5 +1,6 @@
-import { Card, Typography } from "@mui/joy";
+import { Card, Typography, Stack, Sheet } from "@mui/joy";
 import CalorieGoalDetails from "../CalorieGoalDetails";
+import { LiaBurnSolid } from "react-icons/lia";
 
 const CurrentDayCalories = () => {
   return (
@@ -8,13 +9,23 @@ const CurrentDayCalories = () => {
         boxShadow: "md",
         flex: 1,
         p: 2,
+        height: "100%",
+        gridColumn: "span 4",
       }}
       color="neutral"
       variant="plain"
     >
-      <Typography level="title-sm" color="neutral">
-        Napi tápanyag-bevitel
-      </Typography>
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography level="title-md" component="h2" color="neutral">
+          Bevitt kalória
+        </Typography>
+        <Sheet color="success" variant="soft" sx={{ p: 1, borderRadius: "md" }}>
+          <Typography component="span" color="neutral" fontSize={22}>
+            {" "}
+            <LiaBurnSolid />
+          </Typography>
+        </Sheet>
+      </Stack>
       <CalorieGoalDetails current={2100} goal={2000} />
     </Card>
   );

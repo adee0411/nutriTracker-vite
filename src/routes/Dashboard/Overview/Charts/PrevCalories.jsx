@@ -16,7 +16,14 @@ const TEST_CAL_DATA = [
 const PrevCalories = () => {
   const goal = 2000;
 
-  return <CustomBarChart data={TEST_CAL_DATA} goal={goal} unit="kcal" />;
+  return (
+    <CustomBarChart
+      data={TEST_CAL_DATA}
+      goal={goal}
+      unit="kcal"
+      fillType="normal"
+    />
+  );
 };
 
 export default PrevCalories;

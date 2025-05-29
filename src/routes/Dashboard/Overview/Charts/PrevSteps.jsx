@@ -16,7 +16,12 @@ const PrevSteps = () => {
 
   return (
     <>
-      <CustomBarChart data={TEST_STEPS_DATA} goal={goal} unit="" />
+      <CustomBarChart
+        data={TEST_STEPS_DATA}
+        goal={goal}
+        unit=""
+        fillType="reversed"
+      />
     </>
   );
 };

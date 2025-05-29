@@ -189,7 +189,7 @@ const SelectedIngredient = (/* { selectedIngredient } */) => {
     fat: 10,
   };
 
-  const newIngredientInput = 10;
+  const newIngredientInput = 100;
   return (
     <CardWrapper color="primary" variant="soft">
       <NutritionDetailCard

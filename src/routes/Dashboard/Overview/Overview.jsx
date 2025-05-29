@@ -19,6 +19,8 @@ import {
   MenuItem,
   ListItemDecorator,
   TabPanel,
+  Tooltip,
+  Sheet,
 } from "@mui/joy";
 
 import "./Overview.css";
@@ -89,30 +91,36 @@ const Overview = () => {
           alignItems="center"
           mb={4}
         >
-          <Typography level="h1" color="neutral" fontSize={20} fontWeight={500}>
+          <Typography level="h1" fontSize={26} fontWeight={700}>
             Áttekintés (05. 20.)
           </Typography>
           <Dropdown>
-            <MenuButton
-              variant="solid"
-              color="primary"
-              slots={{ root: IconButton }}
-              slotProps={{
-                root: {
-                  variant: "outlined",
-                  color: "neutral",
-                  title: "Naplóz",
-                },
-              }}
-              sx={{
-                borderRadius: "50%",
-                width: "30px",
-                height: "30px",
-              }}
+            <Tooltip
+              title="Naplóz"
+              size="md"
+              sx={{ fontWeight: "200" }}
+              placement="bottom-end"
             >
-              <IoAdd />
-            </MenuButton>
-            <Menu placement="bottom-end" sx={{ p: 0 }}>
+              <MenuButton
+                slots={{ root: IconButton }}
+                slotProps={{
+                  root: {
+                    variant: "solid",
+                    color: "primary",
+                    title: "Naplóz",
+                  },
+                }}
+                sx={{
+                  borderRadius: "50%",
+                  width: "30px",
+                  height: "30px",
+                }}
+              >
+                <IoAdd />
+              </MenuButton>
+            </Tooltip>
+
+            <Menu placement="bottom-end" sx={{ p: 0 }} size="sm">
               <MenuItem>
                 <ListItemDecorator>
                   <IoScaleOutline />
@@ -135,50 +143,119 @@ const Overview = () => {
           </Dropdown>
         </Stack>
 
-        {/*** Overview header and charts ***/}
+        {/*** Overview charts ***/}
         <Box className="visual-cont__charts">
           <CurrentDayCalories />
-          <LastSevenDaysData />
           <Card
             sx={{
               boxShadow: "md",
               flex: 1,
               p: 2,
+              gridColumn: "span 2",
+              border: "none",
             }}
-            variant="solid"
-            color="primary"
-            invertedColors
           >
-            <Typography level="title-sm" color="neutral">
-              Valami csuszpajsz
-            </Typography>
-          </Card>{" "}
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography level="title-md" component="h2" color="neutral">
+                Testsúly
+              </Typography>
+              <Sheet
+                color="primary"
+                variant="soft"
+                sx={{ p: 1, borderRadius: "md" }}
+              >
+                <Typography component="span" color="neutral" fontSize={22}>
+                  {" "}
+                  <IoScaleOutline />
+                </Typography>
+              </Sheet>
+            </Stack>
+            <Stack
+              height="100%"
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {" "}
+              <Typography fontSize={40} fontWeight={600}>
+                104 kg
+              </Typography>
+            </Stack>
+          </Card>
+          <Card
+            sx={{
+              boxShadow: "md",
+              flex: 1,
+              p: 2,
+              gridColumn: "span 2",
+              border: "none",
+            }}
+          >
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography level="title-md" component="h2" color="neutral">
+                Lépésszám
+              </Typography>
+              <Sheet
+                color="warning"
+                variant="soft"
+                sx={{ p: 1, borderRadius: "md" }}
+              >
+                <Typography component="span" color="neutral" fontSize={22}>
+                  {" "}
+                  <IoFootstepsOutline />
+                </Typography>
+              </Sheet>
+            </Stack>
+            <Stack
+              height="100%"
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Typography fontSize={40} fontWeight={600}>
+                8972
+              </Typography>
+            </Stack>
+          </Card>
+          <LastSevenDaysData />
         </Box>
         {/*** Meal logging and tracking ***/}
         <Box className="food-log">
           <Box className="food-log__add-food">
             <Tabs
-              aria-label="ingredient-search-tabs"
+              variant="outlined"
+              aria-label="Ingredient search"
               defaultValue="search"
-              sx={{ bgcolor: "transparent", mb: 2 }}
-              size="sm"
+              sx={{
+                borderRadius: "lg",
+                boxShadow: "sm",
+                overflow: "auto",
+              }}
             >
               <TabList
                 disableUnderline
+                tabFlex={1}
                 sx={{
-                  p: 1,
-                  gap: 4,
-                  borderRadius: "xl",
-                  bgcolor: "background.level1",
-                  [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                    boxShadow: "sm",
-                    bgcolor: "background.surface",
-                  },
-                  "& > *": {
-                    fontSize: 12,
+                  [`& .${tabClasses.root}`]: {
+                    fontSize: "sm",
+                    fontWeight: "lg",
+                    [`&[aria-selected="true"]`]: {
+                      color: "primary.500",
+                      bgcolor: "background.surface",
+                    },
+                    [`&.${tabClasses.focusVisible}`]: {
+                      outlineOffset: "-4px",
+                    },
                   },
                 }}
-                tabFlex={1}
               >
                 <Tab
                   disableIndicator
@@ -202,8 +279,12 @@ const Overview = () => {
                   sx={{ "& > *": { flex: 1 } }}
                   gap={4}
                 >
-                  <SearchForm />
-                  <SelectedIngredient />
+                  <Box py={4}>
+                    <SearchForm />
+                  </Box>
+                  <Box p={4}>
+                    <SelectedIngredient />
+                  </Box>
                 </Stack>
               </TabPanel>
               <TabPanel value="quick" sx={{ p: 0 }}>
