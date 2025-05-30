@@ -18,6 +18,22 @@ const theme = extendTheme({
     body: "Poppins, sans-serif",
     display: "Poppins, sans-serif",
   },
+  components: {
+    JoyAvatar: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => {
+          if (ownerState.size === "xl") {
+            return {
+              width: 80,
+              height: 80,
+              fontSize: "2rem",
+              padding: "6px",
+            };
+          }
+        },
+      },
+    },
+  },
 });
 
 const router = createBrowserRouter([

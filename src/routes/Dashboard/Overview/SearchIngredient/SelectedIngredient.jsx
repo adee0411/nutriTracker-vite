@@ -1,13 +1,24 @@
 /* import { db } from "../../firebase/firestore_config";
 import { doc, setDoc } from "firebase/firestore"; */
 
-import { Stack, FormControl, Input, Button } from "@mui/joy";
+import {
+  Stack,
+  FormControl,
+  Input,
+  Button,
+  Card,
+  CardOverflow,
+  AspectRatio,
+  Typography,
+  Avatar,
+} from "@mui/joy";
 
 /* import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router"; */
 
 import NutritionDetailCard from "./NutritionDetailCard";
-import CardWrapper from "./CardWrapper";
+
+import IngredientPlaceholderImg from "../../../../assets/images/chicken_breast.webp";
 
 /* import {
   setIngredientActionFeedback,
@@ -191,10 +202,17 @@ const SelectedIngredient = (/* { selectedIngredient } */) => {
 
   const newIngredientInput = 100;
   return (
-    <CardWrapper color="primary" variant="soft">
+    <Card
+      color="primary"
+      variant="solid"
+      sx={{ boxShadow: "lg" }}
+      invertedColors
+    >
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography level="h4">Csirkecsöcs</Typography>
+        <Avatar variant="soft" size="xl" src={IngredientPlaceholderImg} />
+      </Stack>
       <NutritionDetailCard
-        title={selectedIngredient.ingredientName}
-        imageURL={selectedIngredient.imageURL}
         nutritionData={transformedNutritionData}
         amount={newIngredientInput}
         unit={selectedIngredient.unit}
@@ -219,7 +237,7 @@ const SelectedIngredient = (/* { selectedIngredient } */) => {
           </FormControl>
         </Stack>
       </form>
-    </CardWrapper>
+    </Card>
   );
 };
 

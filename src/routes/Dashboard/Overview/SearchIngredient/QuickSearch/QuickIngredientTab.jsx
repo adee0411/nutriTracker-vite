@@ -17,11 +17,12 @@ const QuickIngredientTab = () => {
     <Tabs
       aria-label="Ingredient list tab"
       defaultValue={0}
-      variant="outlined"
+      variant="plain"
       sx={{
         borderRadius: "lg",
         boxShadow: "md",
         overflow: "auto",
+        height: "100%",
       }}
     >
       <TabList

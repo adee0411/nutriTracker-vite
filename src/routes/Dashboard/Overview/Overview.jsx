@@ -46,8 +46,10 @@ import { IoFootstepsOutline } from "react-icons/io5";
 import { IoIosBicycle } from "react-icons/io";
 import { CiClock1 } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
+import { SiMoleculer } from "react-icons/si";
 
 import RoutePlacehorderImg from "../../../assets/images/route_placeholder.jpg";
+import GrowImg from "../../../assets/icons/statistic-grow-svgrepo-com_100.svg";
 
 const TEST_RESULTS = [
   {
@@ -179,13 +181,13 @@ const Overview = () => {
                 </Stack>
 
                 <Sheet
-                  color="primary"
+                  color="warning"
                   variant="soft"
                   sx={{ p: 1, borderRadius: "md" }}
                 >
                   <Typography component="span" color="neutral" fontSize={22}>
                     {" "}
-                    <IoScaleOutline />
+                    <SiMoleculer />
                   </Typography>
                 </Sheet>
               </Stack>
@@ -245,7 +247,10 @@ const Overview = () => {
             >
               {" "}
               <Typography fontSize={40} fontWeight={600}>
-                104 kg
+                104{" "}
+                <Typography fontSize={20} fontWeight={400}>
+                  kg
+                </Typography>
               </Typography>
             </Stack>
           </Card>
@@ -284,8 +289,15 @@ const Overview = () => {
               justifyContent="center"
             >
               <Typography fontSize={40} fontWeight={600}>
-                8972
+                7240{" "}
+                <Typography fontSize={20} fontWeight={400}>
+                  lépés
+                </Typography>
               </Typography>
+              <Stack direction="row" alignItems="center" gap={1}>
+                <Typography component="span">⭐</Typography>
+                <Typography color="neutral">Rekord: 17244</Typography>
+              </Stack>
             </Stack>
           </Card>
           <LastSevenDaysData />
@@ -298,9 +310,10 @@ const Overview = () => {
               aria-label="Ingredient search"
               defaultValue="search"
               sx={{
-                borderRadius: "lg",
-                boxShadow: "sm",
+                borderRadius: "md",
+                boxShadow: "md",
                 overflow: "auto",
+                height: "100%",
               }}
             >
               <TabList
@@ -324,6 +337,7 @@ const Overview = () => {
                   disableIndicator
                   sx={{ textAlign: "center" }}
                   value="search"
+                  variant="soft"
                 >
                   Alapanyag keresése
                 </Tab>
@@ -331,11 +345,12 @@ const Overview = () => {
                   disableIndicator
                   sx={{ textAlign: "center" }}
                   value="quick"
+                  variant="soft"
                 >
-                  Gyors elérés
+                  Gyors hozzáadás
                 </Tab>
               </TabList>
-              <TabPanel value="search" sx={{ p: 0 }}>
+              <TabPanel value="search" sx={{ p: 2 }}>
                 <Stack
                   direction="row"
                   width="100%"
@@ -345,12 +360,12 @@ const Overview = () => {
                   <Box py={4}>
                     <SearchForm />
                   </Box>
-                  <Box p={4}>
+                  <Box py={4}>
                     <SelectedIngredient />
                   </Box>
                 </Stack>
               </TabPanel>
-              <TabPanel value="quick" sx={{ p: 0 }}>
+              <TabPanel value="quick" sx={{ p: 2 }}>
                 <QuickIngredientTab />
               </TabPanel>
             </Tabs>

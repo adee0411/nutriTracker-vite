@@ -24,9 +24,15 @@ const MacroGoalDetails = ({ macroType, goal, current, color }) => {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Typography level="body-sm" fontSize={12} flex={1}>
-        {macroType}
-      </Typography>
+      <Stack flex={1}>
+        <Typography level="body-sm" fontSize={12}>
+          {macroType}
+        </Typography>
+        <Typography level="body-sm" fontSize={9}>
+          {`${current}g / ${goal}g`}
+        </Typography>
+      </Stack>
+
       <LinearProgress
         determinate
         value={+value > 100 ? 100 : +value}
