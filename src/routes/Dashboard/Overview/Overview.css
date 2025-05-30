@@ -10,7 +10,7 @@
 .visual-cont__charts {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 200px;
+  grid-auto-rows: auto;
   width: 100%;
   gap: 16px;
   margin-bottom: 32px;
