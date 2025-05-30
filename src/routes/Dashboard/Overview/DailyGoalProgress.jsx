@@ -7,8 +7,8 @@ import BurnIcon from "../../../assets/icons/burn.svg";
 const DailyGoalProgress = ({ current, goal, size, type }) => {
   const ProgressSizes = {
     sm: { thickness: 2, dimension: 60, fontSize: 12 },
-    md: { thickness: 3, dimension: 100, fontSize: 16 },
-    lg: { thickness: 4, dimension: 120, fontSize: 20 },
+    md: { thickness: 3, dimension: 80, fontSize: 16 },
+    lg: { thickness: 4, dimension: 100, fontSize: 20 },
   };
   const ratio = Number((current / goal).toFixed(2));
   const ratioInPercentage = Number((ratio * 100).toFixed(0));

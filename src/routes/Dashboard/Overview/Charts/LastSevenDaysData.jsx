@@ -59,7 +59,7 @@ const LastSevenDaysData = () => {
         flex: 1,
         p: 2,
         height: "100%",
-        gridColumn: "span 4",
+        gridColumn: "span 3",
       }}
       variant="plain"
     >

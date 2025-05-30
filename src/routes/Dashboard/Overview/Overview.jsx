@@ -38,6 +38,7 @@ import SearchForm from "../Overview/SearchIngredient/SearchForm";
 import ResultList from "../Overview/SearchIngredient/ResultList";
 import QuickIngredientTab from "../Overview/SearchIngredient/QuickSearch/QuickIngredientTab";
 import SelectedIngredient from "./SearchIngredient/SelectedIngredient";
+import MacroGoalDetails from "./Charts/MacroGoalDetails";
 
 import { IoAdd } from "react-icons/io5";
 import { IoScaleOutline } from "react-icons/io5";
@@ -155,6 +156,59 @@ const Overview = () => {
         {/*** Overview charts ***/}
         <Box className="visual-cont__charts">
           <CurrentDayCalories />
+          <Card sx={{ gridColumn: "span 2", border: "none", boxShadow: "md" }}>
+            <Stack justifyContent="space-between" gap={2} height="100%">
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Stack>
+                  <Typography level="title-md" component="h2" color="neutral">
+                    Makronutriensek
+                  </Typography>
+                  <Typography
+                    level="title-sm"
+                    component="h2"
+                    color="neutral"
+                    fontWeight={300}
+                    fontSize={12}
+                  >
+                    Magas szénhidrát
+                  </Typography>
+                </Stack>
+
+                <Sheet
+                  color="primary"
+                  variant="soft"
+                  sx={{ p: 1, borderRadius: "md" }}
+                >
+                  <Typography component="span" color="neutral" fontSize={22}>
+                    {" "}
+                    <IoScaleOutline />
+                  </Typography>
+                </Sheet>
+              </Stack>
+              <MacroGoalDetails
+                macroType="Szénhidrát"
+                goal={200}
+                current={150}
+                color="primary"
+              />
+              <MacroGoalDetails
+                macroType="Fehérje"
+                goal={200}
+                current={100}
+                color="warning"
+              />
+              <MacroGoalDetails
+                macroType="Zsír"
+                goal={80}
+                current={90}
+                color="success"
+              />
+            </Stack>
+          </Card>
           <Card
             sx={{
               boxShadow: "md",

@@ -28,7 +28,7 @@ const CalorieGoalDetails = ({ current, goal }) => {
           <DailyGoalProgress
             current={current}
             goal={goal}
-            size="sm"
+            size="md"
             type="circular"
           />
         </Stack>
