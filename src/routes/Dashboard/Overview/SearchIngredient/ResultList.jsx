@@ -109,6 +109,81 @@ const ResultList = ({ resultList }) => {
             />
           </ListItemButton>
         </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <IngredientListItemContent
+              ingredientName="Teszt"
+              amount={100}
+              unit="g"
+              nutritionData={{
+                energy: 10,
+                protein: 20,
+                carb: 30,
+                fat: 40,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <IngredientListItemContent
+              ingredientName="Teszt"
+              amount={100}
+              unit="g"
+              nutritionData={{
+                energy: 10,
+                protein: 20,
+                carb: 30,
+                fat: 40,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <IngredientListItemContent
+              ingredientName="Teszt"
+              amount={100}
+              unit="g"
+              nutritionData={{
+                energy: 10,
+                protein: 20,
+                carb: 30,
+                fat: 40,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <IngredientListItemContent
+              ingredientName="Teszt"
+              amount={100}
+              unit="g"
+              nutritionData={{
+                energy: 10,
+                protein: 20,
+                carb: 30,
+                fat: 40,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton>
+            <IngredientListItemContent
+              ingredientName="Teszt"
+              amount={100}
+              unit="g"
+              nutritionData={{
+                energy: 10,
+                protein: 20,
+                carb: 30,
+                fat: 40,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Stack>
   );

@@ -18,6 +18,9 @@ const theme = extendTheme({
     body: "Poppins, sans-serif",
     display: "Poppins, sans-serif",
   },
+  shadow: {
+    xl: "6px 12px 12px rgba(0,0,0,0.2)",
+  },
   components: {
     JoyAvatar: {
       styleOverrides: {

@@ -64,9 +64,9 @@ const LastSevenDaysData = () => {
       variant="plain"
     >
       <Stack direction="row" justifyContent="space-between">
-        <Stack gap={2} direction="row" alignItems="center">
+        <Stack gap={0} direction="column">
           <Typography
-            level="title-md"
+            level="title-sm"
             component="h2"
             color="neutral"
             display="flex"
@@ -79,7 +79,13 @@ const LastSevenDaysData = () => {
             </Typography>
             <Typography component="span">{`${dataTypes[currentData].title}`}</Typography>
           </Typography>
-          <Typography level="title-sm" color="neutral" fontWeight={300}>
+          <Typography
+            level="title-sm"
+            component="h2"
+            color="neutral"
+            fontWeight={300}
+            fontSize={12}
+          >
             Elmúlt 7 nap
           </Typography>
         </Stack>

@@ -11,7 +11,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 14px;
-  border-radius: 50%;
+  border-radius: 6px;
 }
 
 .calendar-container .react-calendar__navigation {
@@ -33,7 +33,23 @@
 
 .calendar-container .react-calendar__tile {
   transition: all 0.2s ease-in-out;
+  position: relative;
 }
+
+/* Mark days where no food log happened
+.calendar-container .react-calendar__tile::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: orange;
+  border-radius: 50%;
+  z-index: 100;
+}*/
+
 .calendar-container .react-calendar__tile--active {
   background-color: var(--joy-palette-primary-500, #0b6bcb);
   color: var(--joy-palette-neutral-50, #ffffff);

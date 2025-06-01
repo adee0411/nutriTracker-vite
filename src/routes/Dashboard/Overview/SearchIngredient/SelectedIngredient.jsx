@@ -205,7 +205,7 @@ const SelectedIngredient = (/* { selectedIngredient } */) => {
     <Card
       color="primary"
       variant="solid"
-      sx={{ boxShadow: "lg" }}
+      sx={{ boxShadow: "xl" }}
       invertedColors
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
