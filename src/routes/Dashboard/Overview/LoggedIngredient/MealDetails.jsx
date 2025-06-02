@@ -63,14 +63,12 @@ const MealDetails = ({ mealName }) => {
   const mealIngredients = [];
 
   return (
-    <>
-      <Card variant="plain" sx={{ boxShadow: "md" }}>
-        <Stack gap={2}>
-          <MealNutritionSummary mealName={mealName} isSimple={true} />
-          <AddedIngredients mealName={mealName} />
-        </Stack>
-      </Card>
-    </>
+    <Card variant="plain" sx={{ boxShadow: "md" }}>
+      <Stack gap={2}>
+        <MealNutritionSummary mealName={mealName} isSimple={true} />
+        <AddedIngredients mealName={mealName} />
+      </Stack>
+    </Card>
   );
 };
 

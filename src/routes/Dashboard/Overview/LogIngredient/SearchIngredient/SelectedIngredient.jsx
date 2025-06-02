@@ -19,6 +19,8 @@ import { useParams } from "react-router"; */
 import NutritionDetailCard from "./NutritionDetails";
 
 import IngredientPlaceholderImg from "../../../../../assets/images/chicken_breast.webp";
+import LoadErrorImg from "../../../../../assets/images/ingredient_placeholder_white.svg";
+import { useState } from "react";
 
 /* import {
   setIngredientActionFeedback,
@@ -40,6 +42,7 @@ const mealTexts = {
 };
 
 const SelectedIngredient = (/* { selectedIngredient } */) => {
+  const [avatarImage, setAvatarImage] = useState(IngredientPlaceholderImg);
   /*  const dispatch = useDispatch();
 
   const { mealTitle } = useParams();
@@ -210,7 +213,12 @@ const SelectedIngredient = (/* { selectedIngredient } */) => {
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography level="h4">Csirkecsöcs</Typography>
-        <Avatar variant="soft" size="xl" src={IngredientPlaceholderImg} />
+        <Avatar
+          variant="soft"
+          size="xl"
+          src={avatarImage}
+          onError={() => setAvatarImage(LoadErrorImg)}
+        />
       </Stack>
       <NutritionDetailCard
         nutritionData={transformedNutritionData}

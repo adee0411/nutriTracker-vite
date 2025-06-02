@@ -13,6 +13,7 @@ import DailyStepsCard from "./Charts/DailyData/DailyStepsData/DailyStepsCard";
 import LogIngredient from "./LogIngredient/LogIngredient";
 import LoggedIngredient from "./LoggedIngredient/LoggedIngredient";
 import LastActivity from "./LastActivity/LastActivity";
+import { useParams } from "react-router";
 
 const TEST_RESULTS = [
   {
@@ -55,6 +56,10 @@ const TEST_RESULTS = [
 
 const Overview = () => {
   // const [isActive, setIsActive] = useState(true);
+  const params = useParams();
+  const selectedDate = params.selectedDate;
+  const date = selectedDate ? new Date(selectedDate) : new Date();
+  const formattedDate = selectedDate.split("-").slice(1).join(".") + ".";
 
   return (
     <Box className="main-grid">
@@ -69,7 +74,7 @@ const Overview = () => {
           mb={4}
         >
           <Typography level="h1" fontSize={26} fontWeight={700}>
-            Áttekintés (05. 20.)
+            Áttekintés ({formattedDate})
           </Typography>
           <LogNewData />
         </Stack>

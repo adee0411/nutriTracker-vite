@@ -3,6 +3,7 @@ import CalorieGoalDetails from "./CalorieGoalDetails";
 import { LiaBurnSolid } from "react-icons/lia";
 
 const DailyCalorieData = () => {
+  console.log("rendered");
   return (
     <Card
       sx={{

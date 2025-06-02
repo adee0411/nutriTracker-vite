@@ -46,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     Component: ProtectedRoute,
-    path: "/dashboard",
+    path: "/dashboard/:selectedDate",
     children: [
       {
         Component: DashboardLayout,

@@ -13,7 +13,7 @@ import { IoIosBicycle } from "react-icons/io";
 import { CiClock1 } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
 
-import RoutePlacehorderImg from "../../../../assets/images/route_placeholder.jpg";
+import PlaceholderImg from "../../../../assets/images/cycling_placeholder.jfif";
 
 const LastActivity = () => {
   return (
@@ -25,9 +25,9 @@ const LastActivity = () => {
         </Link>
       </Stack>
       <CardOverflow>
-        <AspectRatio ratio="2">
+        <AspectRatio ratio="2" sx={{ borderRadius: 0 }}>
           <img
-            src={RoutePlacehorderImg}
+            src={PlaceholderImg}
             srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
             loading="lazy"
             alt=""
