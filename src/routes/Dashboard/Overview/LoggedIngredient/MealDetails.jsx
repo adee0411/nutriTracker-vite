@@ -6,6 +6,7 @@ import {
   IconButton,
   CardOverflow,
   AspectRatio,
+  Button,
 } from "@mui/joy";
 
 import { Link } from "react-router-dom";
@@ -25,7 +26,7 @@ import {
   setLastRemoved,
 } from "../store/ingredientSlice";*/
 
-const MealDetails = () => {
+const MealDetails = ({ mealName }) => {
   //const dispatch = useDispatch();
 
   // Get meal's name
@@ -60,28 +61,13 @@ const MealDetails = () => {
 
   /******** TEST *********/
   const mealIngredients = [];
-  const mealTitle = "breakfast";
 
   return (
     <>
       <Card variant="plain" sx={{ boxShadow: "md" }}>
         <Stack gap={2}>
-          <Stack>
-            <MealNutritionSummary isSimple={true} />
-            <AddedIngredients mealName={mealTitle} />
-            {/**       <Stack>
-  {mealIngredients.length === 0 || mealIngredients === null ? (
-    <Stack alignItems="center">
-      <EmptyListPlaceholder text="A lista üres. Adj hozzá alapanyagokat!" />
-      <Link to="add-food" viewTransition style={{ width: "fit-content" }}>
-        <Button>Hozzáadás</Button>
-      </Link>
-    </Stack>
-  ) : (
-    <AddedIngredients mealName={mealTitle} />
-  )}
-</Stack>*/}
-          </Stack>
+          <MealNutritionSummary mealName={mealName} isSimple={true} />
+          <AddedIngredients mealName={mealName} />
         </Stack>
       </Card>
     </>

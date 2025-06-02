@@ -1,15 +1,19 @@
+// React Hooks
 import React, { useState } from "react";
-import { Typography, Box, Button, Stack } from "@mui/joy";
+// Joy UI components
+import { Box, Button, Stack } from "@mui/joy";
 
+// Components
 import FeatureLayout from "./FeatureLayout";
 
+// Assets
 import ImageMan from "../../../assets/images/Diet-bro.svg";
 import ImageWoman from "../../../assets/images/Diet-sis.svg";
-
 import LogImage from "../../../assets/images/healthy food-amico.svg";
 import TrackImage from "../../../assets/images/analytics-bro.svg";
 import EditImage from "../../../assets/images/Setup-rafiki.svg";
 
+// Features Map
 const FEATURES = [
   {
     title: "Köszöntünk a Nutritracker alkalmazásban!",
@@ -53,12 +57,9 @@ const Welcome = () => {
 
   return (
     <Box
+      className="centered"
       sx={{
         height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
         margin: "0 auto",
         p: 10,
       }}

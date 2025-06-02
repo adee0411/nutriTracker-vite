@@ -32,7 +32,7 @@ const dataTypes = [
   },
 ];
 
-const LastSevenDaysData = () => {
+const LastSevenDaysCard = () => {
   const [currentData, setCurrentData] = useState(0);
 
   const handleDataRender = (e) => {
@@ -103,4 +103,4 @@ const LastSevenDaysData = () => {
     </Card>
   );
 };
-export default LastSevenDaysData;
+export default LastSevenDaysCard;

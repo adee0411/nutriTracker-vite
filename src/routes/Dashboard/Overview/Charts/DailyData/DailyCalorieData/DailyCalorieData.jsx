@@ -1,8 +1,8 @@
 import { Card, Typography, Stack, Sheet } from "@mui/joy";
-import CalorieGoalDetails from "../CalorieGoalDetails";
+import CalorieGoalDetails from "./CalorieGoalDetails";
 import { LiaBurnSolid } from "react-icons/lia";
 
-const CurrentDayCalories = () => {
+const DailyCalorieData = () => {
   return (
     <Card
       sx={{
@@ -31,4 +31,4 @@ const CurrentDayCalories = () => {
   );
 };
 
-export default CurrentDayCalories;
+export default DailyCalorieData;

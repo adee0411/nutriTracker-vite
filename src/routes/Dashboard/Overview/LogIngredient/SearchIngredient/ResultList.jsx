@@ -6,7 +6,7 @@ import {
   ListItemDecorator,
   Stack,
 } from "@mui/joy";
-import IngredientListItemContent from "../LoggedFoods/IngredientListItemContent";
+import IngredientListItemContent from "../../LoggedIngredient/IngredientListItemContent";
 /* import { useDispatch, useSelector } from "react-redux"; */
 
 /* import {

@@ -1,11 +1,16 @@
-import { Box, Sheet } from "@mui/joy";
-import React from "react";
+// Joy UI Components
+import { Box } from "@mui/joy";
+
 import { Outlet } from "react-router-dom";
+
+// Components
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 
+// Custom CSS styles
 import "./DashboardLayout.css";
 
+// ROOT DASHBOARD LAYOUT
 const DashboardLayout = () => {
   return (
     <Box className="dashboard-grid">
@@ -14,24 +19,6 @@ const DashboardLayout = () => {
       <main className="dashboard-main">
         <Outlet />
       </main>
-      {/**
-       *       
-      <Box lg={10} md={10} xs={10}>
-
-        <main
-          style={{ height: "100vh", paddingTop: "60px", overflowY: "auto" }}
-        >
-          <Sheet
-            color="neutral"
-            variant="plain"
-            sx={{ height: "100%", padding: 4 }}
-          >
-            <Outlet />
-          </Sheet>
-        </main>
-      </Box>
-       * 
-       */}
     </Box>
   );
 };

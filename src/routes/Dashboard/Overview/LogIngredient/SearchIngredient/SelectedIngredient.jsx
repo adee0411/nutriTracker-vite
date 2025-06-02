@@ -16,9 +16,9 @@ import {
 /* import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router"; */
 
-import NutritionDetailCard from "./NutritionDetailCard";
+import NutritionDetailCard from "./NutritionDetails";
 
-import IngredientPlaceholderImg from "../../../../assets/images/chicken_breast.webp";
+import IngredientPlaceholderImg from "../../../../../assets/images/chicken_breast.webp";
 
 /* import {
   setIngredientActionFeedback,

@@ -55,3 +55,8 @@ select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.centered {
+  display: flex;
+  place-items: center;
+}

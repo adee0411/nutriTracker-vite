@@ -1,5 +1,5 @@
 import { Stack } from "@mui/joy";
-import CustomBarChart from "./CustomBarChart";
+import CustomBarChart from "../CustomBarChart";
 
 const TEST_STEPS_DATA = [
   { date: "05.20.", value: 2300 },

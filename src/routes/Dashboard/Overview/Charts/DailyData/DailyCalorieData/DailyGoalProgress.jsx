@@ -2,7 +2,7 @@ import { CircularProgress, LinearProgress, Typography } from "@mui/joy";
 
 import { useCountUp } from "use-count-up";
 
-import BurnIcon from "../../../assets/icons/burn.svg";
+import BurnIcon from "../../../../../../assets/icons/burn.svg";
 
 const DailyGoalProgress = ({ current, goal, size, type }) => {
   const ProgressSizes = {

@@ -1,64 +1,18 @@
-import { useState } from "react";
-import {
-  Card,
-  CardOverflow,
-  AspectRatio,
-  CardContent,
-  Divider,
-  Grid,
-  Box,
-  Stack,
-  Typography,
-  LinearProgress,
-  ButtonGroup,
-  Button,
-  Tabs,
-  TabList,
-  Tab,
-  tabClasses,
-  Dropdown,
-  MenuButton,
-  IconButton,
-  Menu,
-  MenuItem,
-  ListItemDecorator,
-  TabPanel,
-  Tooltip,
-  Sheet,
-  Link,
-} from "@mui/joy";
+import { Box, Stack, Typography } from "@mui/joy";
 
 import "./Overview.css";
 
 import Calendar from "./Calendar/Calendar";
-import MealDetails from "./LoggedFoods/MealDetails";
-import CurrentDayCalories from "./Charts/CurrentDayCalories";
-import LastSevenDaysData from "./Charts/LastSevenDaysData";
-import SearchForm from "../Overview/SearchIngredient/SearchForm";
-import ResultList from "../Overview/SearchIngredient/ResultList";
-import QuickIngredientTab from "../Overview/SearchIngredient/QuickSearch/QuickIngredientTab";
-import SelectedIngredient from "./SearchIngredient/SelectedIngredient";
-import MacroGoalDetails from "./Charts/MacroGoalDetails";
+import DailyCalorieData from "./Charts/DailyData/DailyCalorieData/DailyCalorieData";
+import LastSevenDaysData from "./Charts/SevenDayData/LastSevenDaysCard";
 
-import { IoAdd } from "react-icons/io5";
-import { IoScaleOutline } from "react-icons/io5";
-import { IoFootstepsOutline } from "react-icons/io5";
-import { IoIosBicycle } from "react-icons/io";
-import { CiClock1 } from "react-icons/ci";
-import { GiPathDistance } from "react-icons/gi";
-import { SiMoleculer } from "react-icons/si";
-import { FaRegHeart } from "react-icons/fa";
-import { LuClock } from "react-icons/lu";
-import { IoRepeat } from "react-icons/io5";
-import { FaRegUser } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
-
-import RoutePlacehorderImg from "../../../assets/images/route_placeholder.jpg";
-import GrowImg from "../../../assets/icons/statistic-grow-svgrepo-com_100.svg";
-import RecentIngredients from "./SearchIngredient/QuickSearch/RecentIngredients";
-import FavoriteIngredients from "./SearchIngredient/QuickSearch/FavoriteIngredients";
-import FrequentIngredients from "./SearchIngredient/QuickSearch/FrequentIngredients";
-import CustomIngredients from "./SearchIngredient/QuickSearch/CustomIngredients";
+import LogNewData from "./LogNewData/LogNewData";
+import DailyMacroCard from "./Charts/DailyData/DailyMacroData/DailyMacroCard";
+import DailyWeightCard from "./Charts/DailyData/DailyWeightData/DailyWeightCard";
+import DailyStepsCard from "./Charts/DailyData/DailyStepsData/DailyStepsCard";
+import LogIngredient from "./LogIngredient/LogIngredient";
+import LoggedIngredient from "./LoggedIngredient/LoggedIngredient";
+import LastActivity from "./LastActivity/LastActivity";
 
 const TEST_RESULTS = [
   {
@@ -100,13 +54,15 @@ const TEST_RESULTS = [
 ];
 
 const Overview = () => {
-  const [isActive, setIsActive] = useState(true);
+  // const [isActive, setIsActive] = useState(true);
 
   return (
     <Box className="main-grid">
       {/*** Main visual content and data ***/}
-      <Box className="visual-cont">
+      <Box className="data-content">
+        {/** Dashboard header */}
         <Stack
+          component="header"
           direction="row"
           justifyContent="space-between"
           alignItems="center"
@@ -115,395 +71,50 @@ const Overview = () => {
           <Typography level="h1" fontSize={26} fontWeight={700}>
             Áttekintés (05. 20.)
           </Typography>
-          <Dropdown>
-            <Tooltip title="Naplóz" size="sm" placement="bottom-end">
-              <MenuButton
-                slots={{ root: IconButton }}
-                slotProps={{
-                  root: {
-                    variant: "solid",
-                    color: "primary",
-                    title: "Naplóz",
-                  },
-                }}
-                sx={{
-                  borderRadius: "50%",
-                  width: "30px",
-                  height: "30px",
-                }}
-              >
-                <IoAdd />
-              </MenuButton>
-            </Tooltip>
-
-            <Menu placement="bottom-end" sx={{ p: 0 }} size="sm">
-              <MenuItem>
-                <ListItemDecorator>
-                  <IoScaleOutline />
-                </ListItemDecorator>
-                Testsúly
-              </MenuItem>
-              <MenuItem>
-                <ListItemDecorator>
-                  <IoFootstepsOutline />
-                </ListItemDecorator>
-                Lépésszám
-              </MenuItem>
-              <MenuItem>
-                <ListItemDecorator>
-                  <IoIosBicycle />
-                </ListItemDecorator>
-                Edzés
-              </MenuItem>
-            </Menu>
-          </Dropdown>
+          <LogNewData />
         </Stack>
 
         {/*** Overview charts ***/}
-        <Box className="visual-cont__charts">
-          <CurrentDayCalories />
-          <Card sx={{ gridColumn: "span 2", border: "none", boxShadow: "md" }}>
-            <Stack justifyContent="space-between" gap={2} height="100%">
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Stack>
-                  <Typography level="title-md" component="h2" color="neutral">
-                    Makronutriensek
-                  </Typography>
-                  <Typography
-                    level="title-sm"
-                    component="h2"
-                    color="neutral"
-                    fontWeight={300}
-                    fontSize={12}
-                  >
-                    Magas szénhidrát
-                  </Typography>
-                </Stack>
-
-                <Sheet
-                  color="warning"
-                  variant="soft"
-                  sx={{ p: 1, borderRadius: "md" }}
-                >
-                  <Typography component="span" color="neutral" fontSize={22}>
-                    {" "}
-                    <SiMoleculer />
-                  </Typography>
-                </Sheet>
-              </Stack>
-              <MacroGoalDetails
-                macroType="Szénhidrát"
-                goal={200}
-                current={150}
-                color="primary"
-              />
-              <MacroGoalDetails
-                macroType="Fehérje"
-                goal={200}
-                current={100}
-                color="warning"
-              />
-              <MacroGoalDetails
-                macroType="Zsír"
-                goal={80}
-                current={90}
-                color="success"
-              />
-            </Stack>
-          </Card>
-          <Card
-            sx={{
-              boxShadow: "md",
-              flex: 1,
-              p: 2,
-              gridColumn: "span 2",
-              border: "none",
-            }}
-          >
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Typography level="title-md" component="h2" color="neutral">
-                Testsúly
-              </Typography>
-              <Sheet
-                color="primary"
-                variant="soft"
-                sx={{ p: 1, borderRadius: "md" }}
-              >
-                <Typography component="span" color="neutral" fontSize={22}>
-                  {" "}
-                  <IoScaleOutline />
-                </Typography>
-              </Sheet>
-            </Stack>
-            <Stack
-              height="100%"
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-            >
-              {" "}
-              <Typography fontSize={40} fontWeight={600}>
-                104{" "}
-                <Typography fontSize={20} fontWeight={400}>
-                  kg
-                </Typography>
-              </Typography>
-            </Stack>
-          </Card>
-          <Card
-            sx={{
-              boxShadow: "md",
-              flex: 1,
-              p: 2,
-              gridColumn: "span 2",
-              border: "none",
-            }}
-          >
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Typography level="title-md" component="h2" color="neutral">
-                Lépésszám
-              </Typography>
-              <Sheet
-                color="warning"
-                variant="soft"
-                sx={{ p: 1, borderRadius: "md" }}
-              >
-                <Typography component="span" color="neutral" fontSize={22}>
-                  {" "}
-                  <IoFootstepsOutline />
-                </Typography>
-              </Sheet>
-            </Stack>
-            <Stack
-              height="100%"
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Typography fontSize={40} fontWeight={600}>
-                7240{" "}
-                <Typography fontSize={20} fontWeight={400}>
-                  lépés
-                </Typography>
-              </Typography>
-              <Stack direction="row" alignItems="center" gap={1}>
-                <Typography component="span">⭐</Typography>
-                <Typography color="neutral">Rekord: 17244</Typography>
-              </Stack>
-            </Stack>
-          </Card>
+        <Box className="data-content__charts">
+          <DailyCalorieData />
+          <DailyMacroCard />
+          <DailyWeightCard />
+          <DailyStepsCard />
           <LastSevenDaysData />
         </Box>
+
         {/*** Meal logging and tracking ***/}
-        <Box className="food-log">
-          <Box className="food-log__add-food">
-            <Tabs
-              variant="outlined"
-              aria-label="Ingredient search"
-              defaultValue="search"
-              sx={{
-                borderRadius: "md",
-                boxShadow: "md",
-                overflow: "auto",
-                height: "100%",
-              }}
+
+        <Box className="ingredient-log">
+          <Box className="ingredient-log__add-ingredient">
+            <Typography
+              level="h2"
+              mb={4}
+              fontSize={20}
+              color="neutral"
+              fontWeight={400}
             >
-              <TabList
-                disableUnderline
-                tabFlex={1}
-                sx={{
-                  [`& .${tabClasses.root}`]: {
-                    fontSize: "sm",
-                    fontWeight: "lg",
-                    [`&[aria-selected="true"]`]: {
-                      color: "primary.500",
-                      bgcolor: "background.surface",
-                    },
-                    [`&.${tabClasses.focusVisible}`]: {
-                      outlineOffset: "-4px",
-                    },
-                  },
-                }}
-              >
-                <Tooltip title="Keresés" size="sm">
-                  <Tab disableIndicator value="search" variant="soft">
-                    <CiSearch />
-                  </Tab>
-                </Tooltip>
-
-                <Tooltip title="Legutóbbiak" size="sm">
-                  <Tab disableIndicator variant="soft" value="recent">
-                    <LuClock />
-                  </Tab>
-                </Tooltip>
-                <Tooltip title="Kedvencek" size="sm">
-                  <Tab disableIndicator variant="soft" value="favorite">
-                    <FaRegHeart />
-                  </Tab>
-                </Tooltip>
-                <Tooltip title="Gyakoriak" size="sm">
-                  <Tab disableIndicator variant="soft" value="frequent">
-                    <IoRepeat />
-                  </Tab>
-                </Tooltip>
-
-                <Tooltip title="Saját" size="sm">
-                  <Tab disableIndicator variant="soft" value="custom">
-                    <FaRegUser />
-                  </Tab>
-                </Tooltip>
-              </TabList>
-              <TabPanel value="search" sx={{ p: 2 }}>
-                <Stack
-                  direction="row"
-                  width="100%"
-                  sx={{ "& > *": { flex: 1 } }}
-                  gap={4}
-                >
-                  <Box py={4}>
-                    <SearchForm />
-                  </Box>
-                  <Box py={4}>
-                    <SelectedIngredient />
-                  </Box>
-                </Stack>
-              </TabPanel>
-              <TabPanel value="recent">
-                <RecentIngredients />
-              </TabPanel>
-              <TabPanel value="favorite">
-                <FavoriteIngredients />
-              </TabPanel>
-              <TabPanel value="frequent">
-                <FrequentIngredients />
-              </TabPanel>
-              <TabPanel value="custom">
-                <CustomIngredients />
-              </TabPanel>
-            </Tabs>
+              Alapanyag naplózása
+            </Typography>
+            <LogIngredient />
           </Box>
-          <Box className="food-log__logged-food">
-            <Tabs
-              aria-label="tabs"
-              defaultValue={0}
-              sx={{ bgcolor: "transparent", mb: 2 }}
-              size="sm"
+          <Box className="ingredient-log__logged-ingredient">
+            <Typography
+              level="h2"
+              mb={4}
+              fontSize={20}
+              color="neutral"
+              fontWeight={400}
             >
-              <TabList
-                disableUnderline
-                sx={{
-                  p: 1,
-                  gap: 0.5,
-                  borderRadius: "xl",
-                  bgcolor: "background.level1",
-                  [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                    boxShadow: "sm",
-                    bgcolor: "background.surface",
-                  },
-                  "& > *": {
-                    fontSize: 12,
-                  },
-                }}
-                tabFlex={1}
-              >
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
-                  Reggeli
-                </Tab>
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
-                  2. étkezés
-                </Tab>
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
-                  3. étkezés
-                </Tab>
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
-                  4. étkezés
-                </Tab>
-                <Tab disableIndicator sx={{ textAlign: "center" }}>
-                  Nasi
-                </Tab>
-              </TabList>
-            </Tabs>
-
-            {/** FOOD LOGGING AND FOOD SEARCH */}
-            <MealDetails />
+              Naplózott alapanyagok
+            </Typography>
+            <LoggedIngredient />
           </Box>
         </Box>
       </Box>
-      <Stack className="aside" gap={4}>
+      <Stack gap={4}>
         <Calendar />
-        <Card variant="outlined" sx={{ "&:hover img": { scale: 1.2 } }}>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Typography level="title-sm">Utolsó aktivitás</Typography>
-            <Link color="neutral" level="body-sm">
-              Összes
-            </Link>
-          </Stack>
-          <CardOverflow>
-            <AspectRatio ratio="2">
-              <img
-                src={RoutePlacehorderImg}
-                srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
-                loading="lazy"
-                alt=""
-                style={{ transition: "all .3s ease" }}
-              />
-            </AspectRatio>
-          </CardOverflow>
-          <CardContent>
-            <Stack direction="row" alignItems="center" gap={1}>
-              <IoIosBicycle />
-              <Typography level="title-md">Bicikli</Typography>
-            </Stack>
-            <Typography level="body-sm">Budapest</Typography>
-            <Typography level="body-sm" fontSize={12}>
-              2025.05.30.
-            </Typography>
-          </CardContent>
-          <CardOverflow variant="soft" sx={{ bgcolor: "background.level1" }}>
-            <Divider inset="context" />
-            <CardContent orientation="horizontal">
-              <Stack direction="row" alignItems="center" gap={1} flex={1}>
-                <CiClock1 />
-                <Typography
-                  level="body-xs"
-                  textColor="text.secondary"
-                  sx={{ fontWeight: "md" }}
-                >
-                  Idő: 1:02:13
-                </Typography>
-              </Stack>
-
-              <Divider orientation="vertical" />
-              <Stack direction="row" alignItems="center" gap={1} flex={1}>
-                <GiPathDistance />
-                <Typography
-                  level="body-xs"
-                  textColor="text.secondary"
-                  sx={{ fontWeight: "md" }}
-                  flex={1}
-                >
-                  Táv: 19.83 km
-                </Typography>
-              </Stack>
-            </CardContent>
-          </CardOverflow>
-        </Card>
+        <LastActivity />
       </Stack>
     </Box>
   );

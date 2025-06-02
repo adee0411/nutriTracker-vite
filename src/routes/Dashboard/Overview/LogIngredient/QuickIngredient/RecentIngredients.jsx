@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import IngredientList from "../../LoggedFoods/IngredientList";
+import IngredientList from "../../LoggedIngredient/IngredientList";
 
-import EmptyListPlaceholder from "../../LoggedFoods/EmptyListPlaceholder";
+import EmptyListPlaceholder from "../../LoggedIngredient/EmptyListPlaceholder";
 
-import IngredientListHeader from "../../LoggedFoods/IngredientListHeader";
+import IngredientListHeader from "../../LoggedIngredient/IngredientListHeader";
 import { Stack } from "@mui/joy";
 import { useParams } from "react-router";
 
@@ -17,6 +17,7 @@ const RecentIngredients = () => {
   /*** TEST*** */
   const recentIngredients = [
     {
+      id: "001",
       ingredientName: "csirkecsöcs",
       amount: 200,
       unit: "g",
@@ -28,6 +29,7 @@ const RecentIngredients = () => {
       },
     },
     {
+      id: "002",
       ingredientName: "csirkecsöcs",
       amount: 200,
       unit: "g",
@@ -39,6 +41,7 @@ const RecentIngredients = () => {
       },
     },
     {
+      id: "003",
       ingredientName: "csirkecsöcs",
       amount: 200,
       unit: "g",

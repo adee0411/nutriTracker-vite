@@ -4,8 +4,8 @@ import AlertBox from "./AlertBox";
 
 import DailyGoalProgress from "./DailyGoalProgress";
 
-import TargetIcon from "../../../assets/icons/target_128.png";
-import FoodIcon from "../../../assets/icons/healthy-food.png";
+import TargetIcon from "../../../../../../assets/icons/target_128.png";
+import FoodIcon from "../../../../../../assets/icons/healthy-food.png";
 
 const CalorieGoalDetails = ({ current, goal }) => {
   const calorieDifference = current - goal;

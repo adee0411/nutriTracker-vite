@@ -23,12 +23,20 @@ const macroIcons = {
   energy: CalorieIcon,
 };
 
-const MealNutritionSummary = ({ isSimple }) => {
+const mealNameMap = {
+  breakfast: "Reggeli",
+  meal2: "2. étkezés",
+  meal3: "3. étkezés",
+  meal4: "4. étkezés",
+  snack: "Snack",
+};
+
+const MealNutritionSummary = ({ isSimple, mealName }) => {
   /* const { addedIngredients } = useSelector((state) => state.ingredient);
 
-  const { mealTitle } = useParams();
+  const { mealName } = useParams();
 
-  const mealIngredients = addedIngredients[mealTitle];
+  const mealIngredients = addedIngredients[mealName];
 
   const reduceMealNutritionData = (ingredients) => {
     // Initialize total nutrition object
@@ -94,12 +102,7 @@ const MealNutritionSummary = ({ isSimple }) => {
 
   const isCalorieSufficit = totalNutritionData.energy > calorieGoal;
 
-  const isMeal = mealTitle.includes("meal"); // Check if meal's title is Meal (number)
-  const formattedMealTitle = isMeal
-    ? `${mealTitle.at(-1)}. étkezés`
-    : mealTitle === "breakfast"
-    ? "Reggeli"
-    : "Nasi";
+
 
   const currentDate = new Date().toLocaleDateString();
 
@@ -107,9 +110,15 @@ const MealNutritionSummary = ({ isSimple }) => {
     totalEnergyRef.current = totalNutritionData.energy;
   }, [totalNutritionData.energy]); */
 
+  /*   const isMeal = mealName.includes("meal"); // Check if meal's title is Meal (number)
+  const formattedmealName = isMeal
+    ? `${mealName.at(-1)}. étkezés`
+    : mealName === "breakfast"
+    ? "Reggeli"
+    : "Snack"; */
+
   /****** TEST *******/
   const currentDate = "05.20";
-  const formattedMealTitle = "Reggeli";
   const mealNutritionData = {
     carb: 300,
     protein: 400,
@@ -146,7 +155,7 @@ const MealNutritionSummary = ({ isSimple }) => {
           fontWeight={600}
           fontSize={26}
         >
-          {formattedMealTitle}
+          {mealNameMap[mealName]}
         </Typography>
         <Typography
           level="title-lg"

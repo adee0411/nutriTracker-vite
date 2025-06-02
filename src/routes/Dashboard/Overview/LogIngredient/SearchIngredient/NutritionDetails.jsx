@@ -1,6 +1,6 @@
 import { Typography, Stack } from "@mui/joy";
 
-const NutritionDetailCard = ({ nutritionData, unit, amount }) => {
+const NutritionDetails = ({ nutritionData, unit, amount }) => {
   const { carb, protein, fat, energy } = nutritionData;
   return (
     <Stack gap={2} sx={{ zIndex: 1 }}>
@@ -75,4 +75,4 @@ const NutritionDetailCard = ({ nutritionData, unit, amount }) => {
   );
 };
 
-export default NutritionDetailCard;
+export default NutritionDetails;
