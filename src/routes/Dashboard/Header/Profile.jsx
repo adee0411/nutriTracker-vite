@@ -9,12 +9,6 @@ import { IoIosLogOut } from "react-icons/io";
 import { Link } from "react-router";
 
 const Profile = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <Dropdown>
       <MenuButton
@@ -26,7 +20,7 @@ const Profile = () => {
       <Menu placement="bottom-end">
         <Link to="/dashboard/settings">
           {" "}
-          <MenuItem onClick={handleClose}>
+          <MenuItem>
             <ListItemDecorator>
               <CiSettings />
             </ListItemDecorator>
@@ -34,7 +28,7 @@ const Profile = () => {
           </MenuItem>
         </Link>
 
-        <MenuItem onClick={handleClose}>
+        <MenuItem>
           <ListItemDecorator>
             <IoIosLogOut />
           </ListItemDecorator>

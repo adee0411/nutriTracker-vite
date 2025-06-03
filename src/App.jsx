@@ -11,6 +11,8 @@ import AuthProvider from "../backend/authentication/AuthProvider";
 import { Provider } from "react-redux";
 import Overview from "./routes/Dashboard/Overview/Overview";
 import Settings from "./routes/Dashboard/Settings/Settings";
+import AchievementsIndex from "./routes/Achievements/AchievementsIndex";
+import RecipesIndex from "./routes/Recipes/RecipesIndex";
 
 const theme = extendTheme({
   //cssVarPrefix: "mode-toggle",
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
       {
         Component: Settings,
         path: "settings",
+      },
+      {
+        Component: RecipesIndex,
+        path: "recipes",
+      },
+      {
+        Component: AchievementsIndex,
+        path: "achievements",
       },
     ],
   },

@@ -9,20 +9,24 @@ import ClockIcon from "../../../assets/icons/back-in-time_128.png";
 
 // React icons
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router";
 
 // Menu item map
 const menuItems = [
   {
     title: "Áttekintés",
     icon: DashboardIcon,
+    url: "",
   },
   {
     title: "Receptek",
     icon: RecipeIcon,
+    url: "recipes",
   },
   {
     title: "Eredmények",
     icon: AchievementIcon,
+    url: "achievements",
   },
   {
     title: "Diéta történet",
@@ -45,30 +49,31 @@ const Navigation = () => {
       <List sx={{ padding: 2 }}>
         {menuItems.map((item) => {
           return (
-            <ListItem
-              key={item.title}
-              sx={{
-                padding: 2,
-                borderBottom: "none",
-              }}
-            >
-              <ListItemButton
+            <Link to={item.url} key={item.url}>
+              <ListItem
                 sx={{
-                  gap: 2,
                   padding: 2,
-                  borderRadius: "sm",
+                  borderBottom: "none",
                 }}
               >
-                <img
-                  src={item.icon}
-                  alt="dashboard-menu-icon"
-                  width={24}
-                  height={24}
-                />
-                <Typography level="body-md">{item.title}</Typography>
-                <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
-              </ListItemButton>
-            </ListItem>
+                <ListItemButton
+                  sx={{
+                    gap: 2,
+                    padding: 2,
+                    borderRadius: "sm",
+                  }}
+                >
+                  <img
+                    src={item.icon}
+                    alt="dashboard-menu-icon"
+                    width={24}
+                    height={24}
+                  />
+                  <Typography level="body-md">{item.title}</Typography>
+                  <MdKeyboardArrowRight style={{ marginLeft: "auto" }} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
           );
         })}
       </List>
