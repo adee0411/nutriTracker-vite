@@ -10,6 +10,7 @@ import DashboardLayout from "./routes/Dashboard/DashboardLayout";
 import DashboardIndex from "./routes/Dashboard/DashboardIndex";
 import AuthProvider from "../backend/authentication/AuthProvider";
 import { Provider } from "react-redux";
+import Overview from "./routes/Dashboard/Overview/Overview";
 
 const theme = extendTheme({
   //cssVarPrefix: "mode-toggle",
@@ -45,17 +46,13 @@ const router = createBrowserRouter([
     index: true,
   },
   {
+    path: "dashboard",
     Component: ProtectedRoute,
-    path: "/dashboard/:selectedDate",
     children: [
+      { Component: DashboardIndex, path: "" },
       {
-        Component: DashboardLayout,
-        children: [
-          {
-            Component: DashboardIndex,
-            index: true,
-          },
-        ],
+        Component: Overview,
+        path: ":selectedDate",
       },
     ],
   },

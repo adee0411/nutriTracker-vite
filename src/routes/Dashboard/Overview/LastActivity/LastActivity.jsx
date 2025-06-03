@@ -17,7 +17,7 @@ import PlaceholderImg from "../../../../assets/images/cycling_placeholder.jfif";
 
 const LastActivity = () => {
   return (
-    <Card variant="outlined" sx={{ "&:hover img": { scale: 1.2 } }}>
+    <Card variant="outlined" sx={{ "&:hover img": { scale: 1.05 } }}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Typography level="title-sm">Utolsó aktivitás</Typography>
         <Link color="neutral" level="body-sm">

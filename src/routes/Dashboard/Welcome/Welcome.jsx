@@ -1,5 +1,6 @@
 // React Hooks
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 // Joy UI components
 import { Box, Button, Stack } from "@mui/joy";
 
@@ -49,10 +50,19 @@ const FEATURES = [
 
 const Welcome = () => {
   const [currentFeature, setCurrentFeature] = useState(0);
+  const navigate = useNavigate();
 
   const handleNextFeature = () => {
     if (currentFeature === FEATURES.length - 1) return;
     setCurrentFeature(currentFeature + 1);
+  };
+
+  const navigateToDashboard = () => {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}-${String(
+      currentDate.getMonth() + 1
+    ).padStart(2, "0")}-${String(currentDate.getDate()).padStart(2, "0")}`;
+    navigate(`/dashboard/${formattedDate}`);
   };
 
   return (
@@ -80,7 +90,12 @@ const Welcome = () => {
         <FeatureLayout currentFeature={currentFeature} features={FEATURES} />
 
         <Stack direction="row" gap={10} width="100%" justifyContent="center">
-          <Button variant="outlined" fullWidth sx={{ maxWidth: 250 }}>
+          <Button
+            variant="outlined"
+            fullWidth
+            sx={{ maxWidth: 250 }}
+            onClick={navigateToDashboard}
+          >
             Elkezdem
           </Button>
 
