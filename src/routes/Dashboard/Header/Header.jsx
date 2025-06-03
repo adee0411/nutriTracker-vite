@@ -1,5 +1,5 @@
 //  JoyUI Components
-import { Sheet, Typography, Avatar, Stack } from "@mui/joy";
+import { Sheet, Typography, Stack } from "@mui/joy";
 
 //  Custom CSS styles
 import "./Header.css";
@@ -12,9 +12,7 @@ import ThemeToggle from "./ThemeToggle";
 import { LiaBurnSolid } from "react-icons/lia";
 import { IoFootstepsOutline } from "react-icons/io5";
 import { IoScaleOutline } from "react-icons/io5";
-
-// Assets
-import AvatarImg from "../../../assets/images/avatar.jpg";
+import Profile from "./Profile";
 
 const Header = () => {
   return (
@@ -59,7 +57,7 @@ const Header = () => {
         </Stack>
         <Achievements />
         <ThemeToggle />
-        <Avatar size="md" src={AvatarImg}></Avatar>
+        <Profile />
       </Sheet>
     </header>
   );

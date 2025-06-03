@@ -6,11 +6,11 @@ import store from "../src/state/store";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Home from "./routes/Home/Home";
-import DashboardLayout from "./routes/Dashboard/DashboardLayout";
 import DashboardIndex from "./routes/Dashboard/DashboardIndex";
 import AuthProvider from "../backend/authentication/AuthProvider";
 import { Provider } from "react-redux";
 import Overview from "./routes/Dashboard/Overview/Overview";
+import Settings from "./routes/Dashboard/Settings/Settings";
 
 const theme = extendTheme({
   //cssVarPrefix: "mode-toggle",
@@ -53,6 +53,10 @@ const router = createBrowserRouter([
       {
         Component: Overview,
         path: ":selectedDate",
+      },
+      {
+        Component: Settings,
+        path: "settings",
       },
     ],
   },

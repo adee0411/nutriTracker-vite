@@ -4,7 +4,7 @@ import Welcome from "./Welcome/Welcome";
 
 const DashboardIndex = () => {
   // Check if user logged in first ever
-  const isFirstLogin = true;
+  const isFirstLogin = false;
 
   const currentDate = new Date();
   const formattedDate = `${currentDate.getFullYear()}-${String(
