@@ -10,7 +10,7 @@ import DashboardIndex from "./routes/Dashboard/DashboardIndex";
 import AuthProvider from "../backend/authentication/AuthProvider";
 import { Provider } from "react-redux";
 import Overview from "./routes/Dashboard/Overview/Overview";
-import Settings from "./routes/Dashboard/Settings/Settings";
+import Settings from "./routes/Settings/Settings";
 import AchievementsIndex from "./routes/Achievements/AchievementsIndex";
 import RecipesIndex from "./routes/Recipes/RecipesIndex";
 

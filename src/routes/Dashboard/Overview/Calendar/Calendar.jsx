@@ -5,7 +5,9 @@ import { Card } from "@mui/joy";
 import { useNavigate, useParams } from "react-router";
 
 const Calendar = () => {
+  // Read selected date route from URL
   const initialDate = useParams().selectedDate;
+
   const [selectedDate, setSelectedDate] = useState(new Date(initialDate));
   const navigate = useNavigate();
 
@@ -13,10 +15,13 @@ const Calendar = () => {
     setSelectedDate(value);
   };
 
+  // Update URL after selecting the date
   useEffect(() => {
+    // Format date to "YYYY-MM-DD"
     const formattedDate = `${selectedDate.getFullYear()}-${String(
       selectedDate.getMonth() + 1
     ).padStart(2, "0")}-${String(selectedDate.getDate()).padStart(2, "0")}`;
+    // Set dynamic URL based on selected (formatted) date
     navigate(`/dashboard/${formattedDate}`);
   }, [selectedDate, navigate]);
 

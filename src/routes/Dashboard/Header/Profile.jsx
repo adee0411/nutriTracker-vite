@@ -24,7 +24,7 @@ const Profile = () => {
             <ListItemDecorator>
               <CiSettings />
             </ListItemDecorator>
-            Settings
+            Beállítások
           </MenuItem>
         </Link>
 
@@ -32,7 +32,7 @@ const Profile = () => {
           <ListItemDecorator>
             <IoIosLogOut />
           </ListItemDecorator>
-          Logout
+          Kijelentkezés
         </MenuItem>
       </Menu>
     </Dropdown>

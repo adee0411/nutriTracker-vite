@@ -17,19 +17,7 @@ import Profile from "./Profile";
 const Header = () => {
   return (
     <header className="dashboard-header">
-      <Sheet
-        sx={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          gap: 6,
-          p: "0 32px",
-        }}
-        color="primary"
-        variant="plain"
-      >
+      <Sheet className="header-content" color="primary" variant="plain">
         <Stack direction={"row"} spacing={2} alignItems="center">
           <Typography level="title-md">Céljaim:</Typography>
           <Stack direction="row" spacing={4}>
