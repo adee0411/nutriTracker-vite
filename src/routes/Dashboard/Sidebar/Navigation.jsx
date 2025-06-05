@@ -12,41 +12,39 @@ import ChartIcon from "../../../assets/icons/chart_128.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { NavLink } from "react-router";
 
-const currentDate = new Date();
-// Format date to "YYYY-MM-DD"
-const formattedDate = `${currentDate.getFullYear()}-${String(
-  currentDate.getMonth() + 1
-).padStart(2, "0")}-${String(currentDate.getDate()).padStart(2, "0")}`;
-// Menu item map
-const menuItems = [
-  {
-    title: "Áttekintés",
-    icon: DashboardIcon,
-    url: `/attekintes/${formattedDate}`,
-  },
-  {
-    title: "Elemzések",
-    icon: ChartIcon,
-    url: "elemzesek",
-  },
-  {
-    title: "Receptek",
-    icon: RecipeIcon,
-    url: "receptek",
-  },
-  {
-    title: "Eredmények",
-    icon: AchievementIcon,
-    url: "eredmenyek",
-  },
-  {
-    title: "Diéta történet",
-    icon: ClockIcon,
-    url: "dieta-tortenet",
-  },
-];
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
+  const { selectedDate } = useSelector((state) => state.app.UI);
+  // Menu item map
+  const menuItems = [
+    {
+      title: "Áttekintés",
+      icon: DashboardIcon,
+      url: `/attekintes/${selectedDate}`,
+    },
+    {
+      title: "Elemzések",
+      icon: ChartIcon,
+      url: "elemzesek",
+    },
+    {
+      title: "Receptek",
+      icon: RecipeIcon,
+      url: "receptek",
+    },
+    {
+      title: "Eredmények",
+      icon: AchievementIcon,
+      url: "eredmenyek",
+    },
+    {
+      title: "Diéta történet",
+      icon: ClockIcon,
+      url: "dieta-tortenet",
+    },
+  ];
+
   return (
     <Box pt={10} height={"100%"}>
       <Typography
@@ -65,7 +63,11 @@ const Navigation = () => {
               to={item.url}
               key={item.url}
               className={({ isActive, isPending }) => {
-                return isActive ? "menu-item--active" : "";
+                return isPending
+                  ? "menu-item--active"
+                  : isActive
+                  ? "menu-item--active"
+                  : "";
               }}
             >
               <ListItem

@@ -59,6 +59,10 @@ const router = createBrowserRouter([
         path: ":selectedDate",
       },
       {
+        Component: AnalysisIndex,
+        path: "elemzesek",
+      },
+      {
         Component: Settings,
         path: "beallitasok",
       },

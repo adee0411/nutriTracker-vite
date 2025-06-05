@@ -3,26 +3,27 @@ import "./customCalendarStyles.css";
 import { Calendar as ReactCalendar } from "react-calendar";
 import { Card } from "@mui/joy";
 import { useNavigate, useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setSelectedDate } from "../../../../state/appSlice";
+
+import { formatDate } from "../../../../state/appSlice";
 
 const Calendar = () => {
-  // Read selected date route from URL
-  const initialDate = useParams().selectedDate;
-
-  const [selectedDate, setSelectedDate] = useState(new Date(initialDate));
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { selectedDate } = useSelector((state) => state.app.UI);
+
   const handleDateChange = (value, event) => {
-    setSelectedDate(value);
+    const formattedDate = formatDate(value);
+    dispatch(setSelectedDate(formattedDate));
   };
 
   // Update URL after selecting the date
   useEffect(() => {
-    // Format date to "YYYY-MM-DD"
-    const formattedDate = `${selectedDate.getFullYear()}-${String(
-      selectedDate.getMonth() + 1
-    ).padStart(2, "0")}-${String(selectedDate.getDate()).padStart(2, "0")}`;
     // Set dynamic URL based on selected (formatted) date
-    navigate(`/attekintes/${formattedDate}`);
+    navigate(`/attekintes/${selectedDate}`);
   }, [selectedDate, navigate]);
 
   return (
