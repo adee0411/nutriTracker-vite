@@ -7,3 +7,7 @@
   z-index: 100;
   border-right: 1px solid var(--joy-palette-neutral-300, #cdd7e1);
 }
+
+.menu-item--active {
+  font-weight: 800;
+}

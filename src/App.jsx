@@ -13,6 +13,8 @@ import Overview from "./routes/Dashboard/Overview/Overview";
 import Settings from "./routes/Settings/Settings";
 import AchievementsIndex from "./routes/Achievements/AchievementsIndex";
 import RecipesIndex from "./routes/Recipes/RecipesIndex";
+import AnalysisIndex from "./routes/Analysis/AnalysisIndex";
+import ErrorPage from "./UI/ErrorPage";
 
 const theme = extendTheme({
   //cssVarPrefix: "mode-toggle",
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
     index: true,
   },
   {
-    path: "dashboard",
+    path: "attekintes",
     Component: ProtectedRoute,
     children: [
       { Component: DashboardIndex, path: "" },
@@ -58,15 +60,19 @@ const router = createBrowserRouter([
       },
       {
         Component: Settings,
-        path: "settings",
+        path: "beallitasok",
       },
       {
         Component: RecipesIndex,
-        path: "recipes",
+        path: "receptek",
       },
       {
         Component: AchievementsIndex,
-        path: "achievements",
+        path: "eredmenyek",
+      },
+      {
+        Component: ErrorPage,
+        path: "dieta-tortenet",
       },
     ],
   },
