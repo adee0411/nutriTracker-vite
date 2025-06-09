@@ -12,7 +12,7 @@ const appSlice = createSlice({
   initialState: {
     UI: {
       isMenuOpen: false,
-      selectedDate: formatDate(new Date()),
+      selectedDate: null,
     },
   },
   reducers: {

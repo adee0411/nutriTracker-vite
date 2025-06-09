@@ -12,19 +12,19 @@ import { formatDate } from "../../../../state/appSlice";
 const Calendar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const params = useParams();
 
   const { selectedDate } = useSelector((state) => state.app.UI);
 
   const handleDateChange = (value, event) => {
     const formattedDate = formatDate(value);
     dispatch(setSelectedDate(formattedDate));
+    navigate(`/attekintes/${formattedDate}`);
   };
 
-  // Update URL after selecting the date
   useEffect(() => {
-    // Set dynamic URL based on selected (formatted) date
-    navigate(`/attekintes/${selectedDate}`);
-  }, [selectedDate, navigate]);
+    dispatch(setSelectedDate(params.selectedDate));
+  }, []);
 
   return (
     <Card variant="plain" sx={{ boxShadow: "md" }}>
