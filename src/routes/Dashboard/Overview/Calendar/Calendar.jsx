@@ -27,7 +27,7 @@ const Calendar = () => {
   }, []);
 
   return (
-    <Card variant="plain" sx={{ boxShadow: "md" }}>
+    <Card sx={{ boxShadow: "md" }}>
       <div className="calendar-container">
         <ReactCalendar
           onChange={handleDateChange}

@@ -63,31 +63,32 @@ const LastSevenDaysCard = () => {
       }}
       variant="plain"
     >
-      <Stack direction="row" justifyContent="space-between">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="flex-start"
+      >
         <Stack gap={0} direction="column">
           <Typography
-            level="title-sm"
+            level="title-md"
             component="h2"
             color="neutral"
             display="flex"
             gap={1}
             alignItems="center"
           >
-            <Typography component="span">
-              {" "}
-              {dataTypes[currentData].icon}
-            </Typography>
-            <Typography component="span">{`${dataTypes[currentData].title}`}</Typography>
-          </Typography>
-          <Typography
-            level="title-sm"
-            component="h2"
-            color="neutral"
-            fontWeight={300}
-            fontSize={12}
-          >
             Elmúlt 7 nap
           </Typography>
+          <Stack direction="row" alignItems="center" gap={1}>
+            <Typography component="span" fontSize={14} color="neutral">
+              {dataTypes[currentData].icon}
+            </Typography>
+            <Typography
+              component="span"
+              fontSize={14}
+              color="neutral"
+            >{`${dataTypes[currentData].title}`}</Typography>
+          </Stack>
         </Stack>
 
         <ButtonGroup variant="plain" color="neutral" size="sm" spacing={2}>

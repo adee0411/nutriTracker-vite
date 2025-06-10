@@ -30,13 +30,16 @@ const DailyWeightCard = () => {
         alignItems="center"
         justifyContent="center"
       >
-        {" "}
         <Typography fontSize={40} fontWeight={600}>
           104{" "}
           <Typography fontSize={20} fontWeight={400}>
             kg
           </Typography>
         </Typography>
+        <Stack direction="row" alignItems="center" gap={1}>
+          <Typography component="span">🎯</Typography>
+          <Typography color="neutral">A célig: 14 kg</Typography>
+        </Stack>
       </Stack>
     </Card>
   );

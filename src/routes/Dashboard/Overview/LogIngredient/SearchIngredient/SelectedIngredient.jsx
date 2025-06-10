@@ -212,7 +212,7 @@ const SelectedIngredient = (/* { selectedIngredient } */) => {
       invertedColors
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography level="h4">Csirkecsöcs</Typography>
+        <Typography level="h4">Csirkemell, nyers</Typography>
         <Avatar
           variant="soft"
           size="xl"

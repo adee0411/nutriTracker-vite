@@ -25,15 +25,22 @@
   text-transform: uppercase;
   border-radius: 8px;
   position: relative;
+  color: var(--joy-palette-neutral-500, #636b74);
+}
+
+.calendar-container .react-calendar__navigation button:hover {
+  background-color: var(--joy-palette-neutral-200, #dde7ee);
 }
 
 .calendar-container .react-calendar__navigation button:disabled {
   background-color: transparent;
+  opacity: 0.5;
 }
 
 .calendar-container .react-calendar__tile {
   transition: all 0.2s ease-in-out;
   position: relative;
+  color: var(--joy-palette-neutral-500, #636b74);
 }
 
 /* Mark days where no food log happened
@@ -52,7 +59,7 @@
 
 .calendar-container .react-calendar__tile--active {
   background-color: var(--joy-palette-primary-500, #0b6bcb);
-  color: var(--joy-palette-neutral-50, #ffffff);
+  color: #fff;
   border-radius: 8px;
 }
 
